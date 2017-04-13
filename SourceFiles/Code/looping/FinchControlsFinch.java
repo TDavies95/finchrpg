@@ -4,8 +4,8 @@ import edu.cmu.ri.createlab.terk.robot.finch.Finch;
 import java.awt.Color;
 
 /**
- * Created by: Tom Lauwers
- * Date:  11/22/2010
+ * Created by: Tim Davies
+ * Date:  4/7/17
  * This program uses two Finches - the accelerometer from one is fed to the wheel velocities of the other.
  */
 

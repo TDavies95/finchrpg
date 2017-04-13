@@ -9,20 +9,24 @@ import edu.cmu.ri.createlab.terk.robot.finch.Finch;
  * A starter file to use the Finch
  */
 
-public class Pitch
+public class Hitter
    {
    public static void main(final String[] args)
       {
       // Instantiating the Finch object
       Finch myFinch = new Finch();
-      //IF finch tilted up, change pitch
-      //If finch tilted down, lower pitch
+      while(true){
+      if (myFinch.isTapped()){
+       myFinch.saySomething("Don't touch me");   
+      }
+      }
+      
       
       // Write some code here!
 
       // Always end your program with finch.quit()
-      myFinch.quit();
-      System.exit(0);
+     // myFinch.quit();
+      //System.exit(0);
       }
    }
 
