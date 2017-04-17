@@ -13,12 +13,13 @@ public class Item {
     // TD - Instantiating and constructors created 
     private int value;
     private String name;
-    private String buff;
+    private Buff buff;
     public Item(){
         value = 0;
-        name = buff = "";
+        name = "";
+        Buff buff = new Buff();
     }
-    public Item(int value, String buff, String name){
+    public Item(int value, Buff buff, String name){
         this.value = value;
         this.buff = buff;
         this.name = name;
@@ -29,10 +30,10 @@ public class Item {
     public void setValue(int value){
         this.value = value;
     }
-    public String getBuff(){
+    public Buff getBuff(){
         return buff;
     }
-    public void setBuff(String buff){
+    public void setBuff(Buff buff){
         this.buff = buff;
     }
     public String getName(){
@@ -40,6 +41,9 @@ public class Item {
     }
     public void setName(String name){
         this.name = name;
+    }
+    public boolean isEquiped(){
+        return true;
     }
     public String toString(){
         return name;

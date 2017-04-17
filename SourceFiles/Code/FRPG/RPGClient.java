@@ -14,7 +14,7 @@ public class RPGClient {
     // TD - Instantiating and constructors created 
     public static void main(final String [] args){
         Finch myFinch = new Finch();
-        
+        Tank myPlayer = new Tank(200,100,5,1,1);
        
         myFinch.quit();
         System.exit(0);

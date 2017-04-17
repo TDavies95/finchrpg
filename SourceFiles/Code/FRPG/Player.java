@@ -53,6 +53,13 @@ public abstract class Player implements Typing{
     public double getIntel(){
         return intel;
     }
+    public void buffPlayer(Buff buff, Item item){
+        int preCP = combatPower;
+        while(item.isEquiped()){ 
+       combatPower = (int)(combatPower * buff.getMultiplier()); 
+        }
+        combatPower = preCP;
+    }
     public String toString(){
         return "Health: " + health + " Mana: " + mana + " CP: " + combatPower;
     }

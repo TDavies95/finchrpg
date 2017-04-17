@@ -10,7 +10,8 @@ package Code.FRPG;
  */
 public interface Typing {
     // TD - Instantiating and constructors created 
-    public boolean isType();
-    public String setType();
-    public int getType();
+   
+    public boolean isType(String type);
+    public void setType(String type);
+    public String getType();
 }

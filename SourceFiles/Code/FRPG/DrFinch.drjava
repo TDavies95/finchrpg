@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20100913-r5387">
+  <project autorefresh="false" root="" work="">
+    <createjar file=""/>
+    <source>
+      <file active="true" name="Code/FinchTemplateFile.java" package="Code" timestamp="25-Oct-2010 15:57:25">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/rss/WeatherFinch.java" package="Code.rss" timestamp="25-Oct-2010 15:54:09">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/conditionals/OrientationSelector.java" package="Code.conditionals" timestamp="25-Oct-2010 14:48:50">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/simpleOutput/HelloWorld.java" package="Code.simpleOutput" timestamp="25-Oct-2010 15:56:14">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/simpleOutput/Dance.java" package="Code.simpleOutput" timestamp="22-Nov-2010 11:22:28">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/rss/MovieCritic.java" package="Code.rss" timestamp="25-Oct-2010 15:52:54">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/rss/GettheNews.java" package="Code.rss" timestamp="20-Oct-2010 16:24:14">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/rss/EarthquakeFinch.java" package="Code.rss" timestamp="25-Oct-2010 15:51:16">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/looping/Spiral.java" package="Code.looping" timestamp="25-Oct-2010 15:47:42">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/looping/HearingTest.java" package="Code.looping" timestamp="25-Oct-2010 15:46:51">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/looping/FinchOrientations.java" package="Code.looping" timestamp="25-Oct-2010 15:46:51">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/looping/AvoidObstacles.java" package="Code.looping" timestamp="25-Oct-2010 15:43:12">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/looping/AlwaysUpHill.java" package="Code.looping" timestamp="25-Oct-2010 15:43:12">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/looping/AfraidFinch.java" package="Code.looping" timestamp="25-Oct-2010 15:39:53">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/graphics/simonGame/FinchGameWindow.java" package="Code.graphics.simonGame" timestamp="25-Oct-2010 15:08:19">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/graphics/simonGame/FinchGame.java" package="Code.graphics.simonGame" timestamp="25-Oct-2010 15:08:00">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/graphics/searchGame/SearchGameView.java" package="Code.graphics.searchGame" timestamp="15-Oct-2010 09:39:02">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/graphics/searchGame/SearchGameTiltControl.java" package="Code.graphics.searchGame" timestamp="15-Oct-2010 09:39:02">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/graphics/searchGame/SearchGameMain.java" package="Code.graphics.searchGame" timestamp="25-Oct-2010 15:15:07">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/graphics/morseCode/MorseCodeFrame.java" package="Code.graphics.morseCode" timestamp="15-Oct-2010 09:36:08">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/graphics/morseCode/MorseCodeBeeper.java" package="Code.graphics.morseCode" timestamp="25-Oct-2010 15:14:00">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/graphics/GestureProgrammer/GestureProgrammerUtils/GestureProgrammerView.java" package="Code.graphics.GestureProgrammer.GestureProgrammerUtils" timestamp="25-Oct-2010 15:11:42">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/graphics/GestureProgrammer/GestureProgrammerUtils/GestureProgram.java" package="Code.graphics.GestureProgrammer.GestureProgrammerUtils" timestamp="15-Oct-2010 09:36:08">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/graphics/GestureProgrammer/GestureProgrammerUtils/GestureCommand.java" package="Code.graphics.GestureProgrammer.GestureProgrammerUtils" timestamp="15-Oct-2010 09:36:08">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/graphics/GestureProgrammer/GestureProgrammerUtils/FinchSimViewPanel.java" package="Code.graphics.GestureProgrammer.GestureProgrammerUtils" timestamp="15-Oct-2010 09:36:08">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/graphics/GestureProgrammer/GestureProgrammer.java" package="Code.graphics.GestureProgrammer" timestamp="25-Oct-2010 15:11:50">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/diagnostic/dutyTester1.java" package="Code.diagnostic" timestamp="25-Oct-2010 15:06:50">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/diagnostic/MultiFinchTester.java" package="Code.diagnostic" timestamp="25-Oct-2010 15:03:09">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/diagnostic/FinchTester.java" package="Code.diagnostic" timestamp="25-Oct-2010 14:56:07">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/customClasses/DancingFinch/MidiPlayer.java" package="Code.customClasses.DancingFinch" timestamp="15-Oct-2010 09:36:08">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/customClasses/DancingFinch/DancingFinchDriver.java" package="Code.customClasses.DancingFinch" timestamp="25-Oct-2010 14:50:43">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/customClasses/DancingFinch/DancingFinch.java" package="Code.customClasses.DancingFinch" timestamp="15-Oct-2010 09:36:08">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/simpleInput/LEDSetter.java" package="Code.simpleInput" timestamp="22-Nov-2010 10:45:52">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Code/looping/FinchControlsFinch.java" package="Code.looping" timestamp="22-Nov-2010 11:12:31">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed>
+      <path name="./[ Source Files ]/Code/conditionals/"/>
+      <path name="./[ Source Files ]/Code/customClasses/"/>
+      <path name="./[ Source Files ]/Code/diagnostic/"/>
+      <path name="./[ Source Files ]/Code/graphics/"/>
+      <path name="./[ Source Files ]/Code/looping/"/>
+      <path name="./[ Source Files ]/Code/simpleInput/"/>
+    </collapsed>
+    <classpath>
+      <file absolute="false" name="finch.jar"/>
+    </classpath>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+  </project>
+</drjava>
