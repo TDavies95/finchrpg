@@ -40,7 +40,7 @@ public class RPGClient {
             }
             if(a==1){
                 System.out.println("You encounter a " + firstEncounter);
-                mapFinch.sleep(10000);
+                a = 2;
                
             }
 
