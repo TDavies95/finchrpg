@@ -4,7 +4,9 @@ import java.util.*;
     Monster mon[] = new Monster[6];
     String name;
     int id;
-
+    public Monster getMon(int pos){
+     return mon[pos];   
+    }
     public int getId() {
         return id;
     }
