@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FRPG;
+package Code.FRPG;
+import edu.cmu.ri.createlab.terk.robot.finch.Finch;
+import java.awt.Color;
 
 /**
  *
@@ -11,7 +13,10 @@ package FRPG;
  */
 public class RPG extends javax.swing.JFrame {
 
-     Tank myPlayer = new Tank(200,100,10,1,1);
+     Dungeon dungeon = new Dungeon();
+     Room r = new Room();
+     Finch mapFinch = new Finch();
+     Finch combatFinch = new Finch();
     /**
      * Creates new form RPG
      */
@@ -71,12 +76,18 @@ public class RPG extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private void gameRun(){
+       mapFinch.setLED(Color.GREEN);
+       combatFinch.setLED(Color.RED);
+       r = dungeon.getRoom(1);
+       Monster firstEncounter = r.mon[1];
+       jTextArea1.setText("Welcome");
+       jTextArea2.setText(firstEncounter.toString()); 
+        
+    }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-      
-       jTextArea1.setText("Welcome");
-       jTextArea2.setText(myPlayer.toString());
+       gameRun();
     }//GEN-LAST:event_formWindowOpened
 
     /**
