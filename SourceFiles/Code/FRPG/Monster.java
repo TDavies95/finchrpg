@@ -10,6 +10,14 @@ public class Monster{
     private int health;
     private int combatPower;
     private String name;
+    public boolean isAlive(){
+        if(health==0)
+            return false;
+        return true; 
+    }
+    public void death(){
+        combatPower = 0;
+    }
     public Monster(){
         health=combatPower=0;
     }
@@ -41,6 +49,7 @@ public class Monster{
      return new Monster(100,20,"Monster");
         
     } 
+    @Override
     public String toString(){
         return "Name: " + name + " Health: " + health + " CP: " + combatPower;
     }

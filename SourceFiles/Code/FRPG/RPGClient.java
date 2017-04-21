@@ -4,9 +4,6 @@
  * and open the template in the editor.
  */
 package Code.FRPG;
-import edu.cmu.ri.createlab.terk.robot.finch.Finch;
-import java.util.Scanner;
-import java.util.Timer;
 
 /**
  *
