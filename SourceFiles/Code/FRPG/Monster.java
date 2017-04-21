@@ -5,7 +5,7 @@ package Code.FRPG;
  *
  * @author Tim
  */
-public abstract class Monster implements Typing{
+public class Monster{
     // TD - Instantiating and constructors created 
     private int health;
     private int combatPower;
@@ -13,9 +13,10 @@ public abstract class Monster implements Typing{
     public Monster(){
         health=combatPower=0;
     }
-    public Monster(int h, int c){
+    public Monster(int h, int c, String name){
         health = h;
         combatPower = c;
+        this.name = name;
     }
     public void setHealth(int health){
         this.health = health;
@@ -35,6 +36,11 @@ public abstract class Monster implements Typing{
     public String getName(){
         return name;
     }
+    public Monster createMonster(){
+        
+     return new Monster(100,20,"Monster");
+        
+    } 
     public String toString(){
         return "Name: " + name + " Health: " + health + " CP: " + combatPower;
     }

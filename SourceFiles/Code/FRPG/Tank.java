@@ -11,13 +11,20 @@ public class Tank extends Player{
     private int combatPower;
     private double luck;
     private double intel;
-    private String type;
+    private String myClass;
     private Tank tank;
     public Tank(){
         super(200,100,10,1,1);
     }
     public Tank(int h, int m, int c , int l, int i){
         super(h,m,c,l,i);
+        myClass = "Tank";
+    }
+    public void setClass(){
+     myClass = "Tank";   
+    }
+    public String getMyClass(){
+     return "Tank";   
     }
     public void setHealth(int health){
         this.health = health;
@@ -57,20 +64,7 @@ public class Tank extends Player{
         combatPower = preCP;
     }
     
-    public void setType(String type){
-     this.type = type;   
-    }
-    public String getType(){
-     return type;   
-    }
-    public boolean isType(String type){
-        if(this.type.equals(type)){
-         return true;   
-        }
-         return false;   
-    }
-    
     public String toString(){
-        return "Health: " + health + " Mana: " + mana + " CP: " + combatPower;
+        return "Health: " + super.getHealth() + " Mana: " + super.getMana() + " CP: " + super.getCombatPower();
     }
 }

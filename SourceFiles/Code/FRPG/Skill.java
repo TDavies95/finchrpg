@@ -1,7 +1,10 @@
 package Code.FRPG;
 
 public class Skill{
-    private int id;
+    private int id,statBoost,combatPower;
+    
+    
+    
     public Skill(){
         id = 0;
     }

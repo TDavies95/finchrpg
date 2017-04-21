@@ -5,16 +5,18 @@ package Code.FRPG;
  *
  * @author Tim
  */
-public abstract class Player implements Typing{
+public abstract class Player{
     // TD - Instantiating and constructors created 
     private int health;
     private int mana;
     private int combatPower;
     private double luck;
     private double intel;
+    private String myClass;
     public Player(){
         health=mana=combatPower=0;
         luck=intel=0;
+        myClass = "";
     }
     public Player(int h, int m, int c , int l, int i){
         health = h;
@@ -22,6 +24,7 @@ public abstract class Player implements Typing{
         combatPower = c;
         luck = l;
         intel = i;
+        myClass = "";
     }
     public void setHealth(int health){
         this.health = health;
@@ -59,6 +62,13 @@ public abstract class Player implements Typing{
        combatPower = (int)(combatPower * buff.getMultiplier()); 
         }
         combatPower = preCP;
+    }
+    public void setClass(String myClass){
+     this.myClass = myClass;   
+        
+    }
+    public String getMyClass(){
+     return myClass;   
     }
     public String toString(){
         return "Health: " + health + " Mana: " + mana + " CP: " + combatPower;
