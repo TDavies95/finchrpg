@@ -1,10 +1,23 @@
 package Code.FRPG;
 
-public class Skill{
+public class Skill implements Typing{
     int id,statBoost,combatPower;
+    private String typing;
     
-    
-    
+    public boolean isType(Skill sk){
+        if (sk.equals(typing)){
+            return true;
+        }
+        return false;
+    }
+    @Override
+    public void setType(String t){
+        typing = t;
+    }
+    @Override
+    public String getType(){
+        return typing;
+    }
     public Skill(){
         id = 0;
     }

@@ -11,7 +11,7 @@ package Code.FRPG;
 public interface Typing {
     // TD - Instantiating and constructors created 
    
-    public boolean isType(String type);
+    public boolean isType(Skill sk);
     public void setType(String type);
     public String getType();
 }

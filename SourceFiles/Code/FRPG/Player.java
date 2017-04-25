@@ -74,6 +74,9 @@ public abstract class Player{
     public int getLVL(){
         return level;
     }
+    public void setLVL(int level){
+        this.level = level;
+    }
     public void setClass(String myClass){
      this.myClass = myClass;   
         

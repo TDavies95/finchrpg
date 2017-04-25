@@ -7,22 +7,25 @@ package Code.FRPG;
 
 /**
  *
- * @author Tim
+ * @author 49037
  */
-    
 public class Weapon extends Item {
     
     private int value; 
     private String name;
+    private Buff buff;
     private String quality;
     private String type;
     private int dmg;
     private boolean equippable;
     
-    public Weapon(){
-        value = dmg = 0;
-        name = quality = type = "";
+    public Weapon(int value, String name, String quality, String type, int damage){
+        this.value = value;
+        this.name = name;
+        this.quality = quality;
+        this.type = type;
         equippable = true;
+        dmg = damage;
     }    
     public Weapon(int value, String name, String quality, String type, int damage, boolean equippable){
         this.value = value;
@@ -40,6 +43,7 @@ public class Weapon extends Item {
         // needs interaction with the Inventory class
     }
     */
+    
     public int getDmg(){
         return dmg;
     }

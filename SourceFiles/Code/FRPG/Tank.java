@@ -87,6 +87,10 @@ public class Tank extends Player{
         return level;
     }
     @Override
+    public void setLVL(int level){
+        this.level = level;
+    }
+    @Override
     public String toString(){
         return "Health: " + super.getHealth() + " Mana: " + super.getMana() + " CP: " + super.getCombatPower();
     }

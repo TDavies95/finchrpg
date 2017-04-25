@@ -82,6 +82,10 @@ public class Fighter extends Player{
     public int getLVL(){
         return level;
     }
+    @Override
+    public void setLVL(int level){
+        this.level = level;
+    }
     public void setType(String type){
      this.type = type;   
     }
