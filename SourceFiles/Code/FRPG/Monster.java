@@ -9,6 +9,7 @@ public class Monster{
     // TD - Instantiating and constructors created 
     private int health;
     private int combatPower;
+    private int expReward;
     private String name;
     public boolean isAlive(){
         if(health==0)
@@ -19,12 +20,13 @@ public class Monster{
         combatPower = 0;
     }
     public Monster(){
-        health=combatPower=0;
+        health=combatPower=expReward=0;
     }
-    public Monster(int h, int c, String name){
+    public Monster(int h, int c,int x, String name){
         health = h;
         combatPower = c;
         this.name = name;
+        expReward = x;
     }
     public void setHealth(int health){
         this.health = health;
@@ -44,9 +46,15 @@ public class Monster{
     public String getName(){
         return name;
     }
+    public void setEXP(int x){
+        expReward = x;
+    }
+    public int getEXP(){
+        return expReward;
+    }
     public Monster createMonster(){
         
-     return new Monster(100,20,"Monster");
+     return new Monster(100,20,0,"Monster");
         
     } 
     @Override

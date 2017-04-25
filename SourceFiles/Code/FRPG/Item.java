@@ -14,15 +14,23 @@ public class Item {
     private int value;
     private String name;
     private Buff buff;
+    private boolean isEquipable;
     public Item(){
         value = 0;
         name = "";
         Buff buff = new Buff();
+        isEquipable = false;
     }
-    public Item(int value, Buff buff, String name){
+    public Item(int value, Buff buff, String name,boolean isEquipable){
         this.value = value;
         this.buff = buff;
         this.name = name;
+        this.isEquipable = isEquipable;
+    }
+    public Item(int value, String name,boolean isEquipable){
+        this.value = value;
+        this.name = name;
+        this.isEquipable = isEquipable;
     }
     public int getValue(){
         return value;
@@ -42,9 +50,14 @@ public class Item {
     public void setName(String name){
         this.name = name;
     }
-    public boolean isEquiped(){
-        return true;
+    public void setEquipable(){
+        isEquipable = true;  
     }
+    public void setUnequipable(){
+        isEquipable = false;
+    }
+    
+    @Override
     public String toString(){
         return name;
     }

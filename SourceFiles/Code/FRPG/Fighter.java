@@ -1,34 +1,30 @@
 package Code.FRPG;
 
-/**
- *
- * @author Matt
- */
-public class Mage extends Player{
+public class Fighter extends Player{
     private int health;
     private int mana;
     private int combatPower;
+    private int exp;
     private int level;
     private double luck;
     private double intel;
     private String type;
     private String myClass;
-    private int exp;
     
-    public Mage(){
-        super(50,200,5,1,2,0,1);
-        myClass = "Mage";
+    public Fighter(){
+        super(100,75,20,5,1,0,1);
+        myClass = "Fighter";
     }
-    public Mage(int h, int m, int c , int l, int i,int x, int lv){
+    public Fighter(int h, int m, int c , int l, int i,int x,int lv){
         super(h,m,c,l,i,x,lv);
-        myClass = "Mage";
+        myClass = "Fighter";
     }
     public void setClass(){
-     myClass = "Mage";   
+     myClass = "Fighter";   
     }
     @Override
     public String getMyClass(){
-     return "Mage";   
+     return "Fighter";   
     }
     @Override
     public void setHealth(int health){
@@ -53,8 +49,8 @@ public class Mage extends Player{
     @Override
     public int getCombatPower(){
         return combatPower;
-    }
-    @Override
+    }@Override
+    
     public void setLuck(double luck){
         this.luck = luck;
     }
@@ -86,7 +82,6 @@ public class Mage extends Player{
     public int getLVL(){
         return level;
     }
-    
     public void setType(String type){
      this.type = type;   
     }
@@ -104,4 +99,3 @@ public class Mage extends Player{
         return "Health: " + health + " Mana: " + mana + " CP: " + combatPower;
     }
 }
-    

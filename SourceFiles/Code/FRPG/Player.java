@@ -10,21 +10,27 @@ public abstract class Player{
     private int health;
     private int mana;
     private int combatPower;
+    private int level;
     private double luck;
     private double intel;
     private String myClass;
+    private int exp;
+    
     public Player(){
-        health=mana=combatPower=0;
+        health=mana=combatPower=exp=0;
         luck=intel=0;
         myClass = "";
+        level = 1;
     }
-    public Player(int h, int m, int c , int l, int i){
+    public Player(int h, int m, int c , int l, int i,int x,int lv){
         health = h;
         mana = m;
         combatPower = c;
         luck = l;
         intel = i;
         myClass = "";
+        exp = x;
+        level = lv;
     }
     public void setHealth(int health){
         this.health = health;
@@ -56,12 +62,17 @@ public abstract class Player{
     public double getIntel(){
         return intel;
     }
-    public void buffPlayer(Buff buff, Item item){
-        int preCP = combatPower;
-        while(item.isEquiped()){ 
-       combatPower = (int)(combatPower * buff.getMultiplier()); 
-        }
-        combatPower = preCP;
+    public void setEXP(int exp){
+        this.exp = exp;
+    }
+    public int getEXP(){
+        return exp;
+    }
+    public void levelUp(){
+        level++;
+    }
+    public int getLVL(){
+        return level;
     }
     public void setClass(String myClass){
      this.myClass = myClass;   
@@ -70,6 +81,7 @@ public abstract class Player{
     public String getMyClass(){
      return myClass;   
     }
+    @Override
     public String toString(){
         return "Health: " + health + " Mana: " + mana + " CP: " + combatPower;
     }
