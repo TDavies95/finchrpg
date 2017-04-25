@@ -12,31 +12,20 @@ package Code.FRPG;
 public class Item {
     // TD - Instantiating and constructors created 
     private int value;
-    private int quantity;
     private String name;
     private Buff buff;
-    private boolean isEquipable;
     private boolean stack;
-    
     public Item(){
         value = 0;
         name = "";
         Buff buff = new Buff();
-        isEquipable = false;
-        quantity = 1;
+        stack = false;
     }
-    public Item(int value, int quanitity, Buff buff, String name,boolean isEquipable){
+    public Item(int value, Buff buff, String name, boolean stack){
         this.value = value;
         this.buff = buff;
         this.name = name;
-        this.isEquipable = isEquipable;
-        this.quantity = quantity;
-    }
-    public Item(int value, int quantity, String name,boolean isEquipable){
-        this.value = value;
-        this.name = name;
-        this.isEquipable = isEquipable;
-        this.quantity = quantity;
+        this.stack = stack;
     }
     public int getValue(){
         return value;
@@ -56,35 +45,18 @@ public class Item {
     public void setName(String name){
         this.name = name;
     }
-    public int getQuantity(){
-        return quantity;
+    public boolean isEquiped(){
+        return true;
     }
-    public void setQuantity(){
-        this.quantity = quantity;
-    }
-    public void setEquipable(){
-        isEquipable = true;  
-    }
-    public void setUnequipable(){
-        isEquipable = false;
-    }
-    public void oneStack(){
-        quantity = 1;
-    }
-    public void addStack(){
-        if (quantity<64)
-        quantity++;
-    }
-    public void removeStack(){
-        if (quantity>0)
-            quantity--;
-    }
-    public void fullStack(){
-        quantity = 64;
-    }
-    @Override
     public String toString(){
         return name;
     }
+    public void setStackable(boolean stack){
+       this.stack = stack; 
+    }
+    public boolean getStackable(){
+         return stack;
+    }
     
 }
+
