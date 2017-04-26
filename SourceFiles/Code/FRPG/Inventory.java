@@ -15,7 +15,7 @@ public class Inventory {
     {
       name = "";
       stack = false;
-      inventory = new ArrayList<>();
+      //inventory = new ArrayList<>();
     }
   public void foundItem(Item item)
   {

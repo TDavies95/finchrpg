@@ -4,7 +4,14 @@ public class Skill implements Typing{
     int id,statBoost,combatPower;
     private String typing;
     private String name;
-
+    private String sequence;
+    
+    public boolean isType(Skill sk){
+        if (sk.equals(typing)){
+            return true;
+        }
+        return false;
+    }
     @Override
     public void setType(String t){
         typing = t;
@@ -15,10 +22,15 @@ public class Skill implements Typing{
     }
     public Skill(){
         id = 0;
-        name = "";
     }
-    public Skill(int id){
+    public Skill(int id, String name, String sequence){
      this.id = id;
+     this.name = name;
+     this.sequence = sequence;
+    }
+    public int getID()
+    {
+      return id;
     }
     public void setSkill(int id){
      this.id = id;   
@@ -26,18 +38,9 @@ public class Skill implements Typing{
     public int getSkill(){
      return id;   
     }
-    public void setName(String name){
-        this.name = name;
-    }
-    public String getName(){
-        return name;
-    }
-    @Override
-    public boolean isType(Skill s){
-        if (s.getType().equals(this.getType())){
-            return true;
-        }
-        return false;
+    public String getSequence()
+    {
+      return sequence;
     }
 }
     

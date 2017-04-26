@@ -32,63 +32,63 @@ public class Mage extends Player{
     }
     @Override
     public void setHealth(int health){
-        this.health = health;
+        super.setHealth(health);
     }
     @Override
     public int getHealth(){
-        return health;
+        return super.getHealth();
     }
     @Override
     public void setMana(int mana){
-        this.mana = mana;
+        super.setMana(mana);
     }
     @Override
     public int getMana(){
-        return mana;
+        return super.getMana();
     }
     @Override
     public void setCombatPower(int combatPower){
-        this.combatPower = combatPower;
+        super.setCombatPower(combatPower);
     }
     @Override
     public int getCombatPower(){
-        return combatPower;
+        return super.getCombatPower();
     }
     @Override
     public void setLuck(double luck){
-        this.luck = luck;
+        super.setLuck(luck);
     }
     @Override
     public double getLuck(){
-        return luck;
+        return super.getLuck();
     }
     @Override
     public void setIntel(double intel){
-        this.intel = intel;
+        super.setIntel(intel);
     }
     @Override
     public double getIntel(){
-        return intel;
+        return super.getIntel();
     }
     @Override
     public void setEXP(int exp){
-        this.exp = exp;
+        super.setEXP(exp);
     }
     @Override
     public int getEXP(){
-        return exp;
+        return super.getEXP();
     }
     @Override
     public void levelUp(){
-        level++;
+        super.setLVL(level+1);
     }
     @Override
     public int getLVL(){
-        return level;
+        return super.getLVL();
     }
     @Override
     public void setLVL(int level){
-        this.level = level;
+        super.setLVL(level);
     }
     public void setType(String type){
      this.type = type;   
@@ -104,7 +104,7 @@ public class Mage extends Player{
     }
     @Override
     public String toString(){
-        return "Health: " + health + " Mana: " + mana + " CP: " + combatPower;
+        return "Health: " + super.getHealth() + " Mana: " + super.getMana() + " CP: " + super.getCombatPower();
     }
 }
     
