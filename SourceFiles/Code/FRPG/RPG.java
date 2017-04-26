@@ -16,7 +16,6 @@ public class RPG extends javax.swing.JFrame {
      Dungeon dungeon = new Dungeon();
      Room r = new Room();
      public static Player myPlayer = new Tank();
-     public static Finch mapFinch = new Finch();
      public static Finch combatFinch = new Finch();
     /**
      * Creates new form RPG
@@ -78,33 +77,19 @@ public class RPG extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void gameRun(){
-        
-       mapFinch.setLED(Color.GREEN);
+       
        combatFinch.setLED(Color.RED);
        r = dungeon.getRoom(1);
-       
+       boolean gameRunning = true;
        Monster firstEncounter = r.mon[1];
        jTextArea1.setText("Welcome. You encounter a strange being.");
        jTextArea2.setText(firstEncounter.toString()); 
        
-      while (firstEncounter.isAlive()){
-       int dmg = SkillBook.getSkill();
-       if(SkillBook.turn % 2 != 0){
-       System.out.println(dmg);
-       System.out.println(SkillBook.turn);
+      while (gameRunning == true && firstEncounter.isAlive() && myPlayer.getHealth()>0){
+       int dmg = SkillBook.getSkill(1);
        firstEncounter.setHealth(firstEncounter.getHealth()-dmg);
-       jTextArea2.setText(firstEncounter.toString());
-       SkillBook.turn++;
+       jTextArea1.setText(firstEncounter.toString());    
        }
-       else if(SkillBook.turn%2==0){
-           System.out.println(SkillBook.turn);
-           dmg = firstEncounter.getCombatPower();
-          myPlayer.setHealth(myPlayer.getHealth()-dmg);
-          jTextArea2.setText(myPlayer.toString()); 
-          SkillBook.turn++;
-       }
-      }
-      
     }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
