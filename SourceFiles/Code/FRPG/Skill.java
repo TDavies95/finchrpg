@@ -32,5 +32,12 @@ public class Skill implements Typing{
     public String getName(){
         return name;
     }
+    @Override
+    public boolean isType(Skill s){
+        if (s.getType().equals(this.getType())){
+            return true;
+        }
+        return false;
+    }
 }
     
