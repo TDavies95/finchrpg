@@ -1,19 +1,31 @@
 package Code.FRPG;
-import edu.cmu.ri.createlab.terk.robot.finch.Finch;
 
-public class SkillBook{
-    public static Skill getSkill(int id) {
+public class SkillBook {
+   public static int turn = 1;
+   
+    public static int getSkill() {
         Skill skl = new Skill();
-        skl.id = id;
-        Finch finch = new Finch();
-        if (id == 0) {
-           skl.statBoost = 2;
+        int dmg = 0;
+        
+        
+                while(turn!=1000){
+                if (RPG.combatFinch.isRightWingDown()) {
+                    skl.setName("Punch");
+                    dmg = 5;
+                    break;
+                }
+                if (RPG.combatFinch.isLeftWingDown()) {
+                    skl.setName("Kick");
+                    dmg = 4;
+                    break;
+                }
+                if (RPG.combatFinch.isFinchUpsideDown()){
+                    skl.setName("Flip");
+                    dmg = 6;
+                    break;
+                }
+                }
+                return dmg;
             
-        } else if (id == 1) {
-           
-            
-        }
-    return null;
-    
     }
 }

@@ -15,8 +15,9 @@ public class RPG extends javax.swing.JFrame {
 
      Dungeon dungeon = new Dungeon();
      Room r = new Room();
-     Finch mapFinch = new Finch();
-     Finch combatFinch = new Finch();
+     public static Player myPlayer = new Tank();
+     public static Finch mapFinch = new Finch();
+     public static Finch combatFinch = new Finch();
     /**
      * Creates new form RPG
      */
@@ -77,13 +78,33 @@ public class RPG extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void gameRun(){
+        
        mapFinch.setLED(Color.GREEN);
        combatFinch.setLED(Color.RED);
        r = dungeon.getRoom(1);
+       
        Monster firstEncounter = r.mon[1];
-       jTextArea1.setText("Welcome");
+       jTextArea1.setText("Welcome. You encounter a strange being.");
        jTextArea2.setText(firstEncounter.toString()); 
-        
+       
+      while (firstEncounter.isAlive()){
+       int dmg = SkillBook.getSkill();
+       if(SkillBook.turn % 2 != 0){
+       System.out.println(dmg);
+       System.out.println(SkillBook.turn);
+       firstEncounter.setHealth(firstEncounter.getHealth()-dmg);
+       jTextArea2.setText(firstEncounter.toString());
+       SkillBook.turn++;
+       }
+       else if(SkillBook.turn%2==0){
+           System.out.println(SkillBook.turn);
+           dmg = firstEncounter.getCombatPower();
+          myPlayer.setHealth(myPlayer.getHealth()-dmg);
+          jTextArea2.setText(myPlayer.toString()); 
+          SkillBook.turn++;
+       }
+      }
+      
     }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
@@ -128,7 +149,7 @@ public class RPG extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
+    public static javax.swing.JTextArea jTextArea1;
+    public static javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }

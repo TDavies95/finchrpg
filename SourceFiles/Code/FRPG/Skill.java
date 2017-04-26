@@ -3,13 +3,8 @@ package Code.FRPG;
 public class Skill implements Typing{
     int id,statBoost,combatPower;
     private String typing;
-    
-    public boolean isType(Skill sk){
-        if (sk.equals(typing)){
-            return true;
-        }
-        return false;
-    }
+    private String name;
+
     @Override
     public void setType(String t){
         typing = t;
@@ -20,6 +15,7 @@ public class Skill implements Typing{
     }
     public Skill(){
         id = 0;
+        name = "";
     }
     public Skill(int id){
      this.id = id;
@@ -29,6 +25,12 @@ public class Skill implements Typing{
     }
     public int getSkill(){
      return id;   
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public String getName(){
+        return name;
     }
 }
     
