@@ -1,31 +1,31 @@
 package Code.FRPG;
 
 public class SkillBook {
-
-    public static int getSkill(int id) {
+   public static int turn = 1;
+   
+    public static int getSkill() {
         Skill skl = new Skill();
-        skl.id = id;
         int dmg = 0;
-        switch (id) {
-            case 1:
-                    while(true){
-                    if (RPG.combatFinch.isRightWingDown()) {
-                        dmg = 5;
-                        break;
-                    }
-                    }
-            case 2:
-                while(true){
+        
+        
+                while(turn!=1000){
+                if (RPG.combatFinch.isRightWingDown()) {
+                    skl.setName("Punch");
+                    dmg = 5;
+                    break;
+                }
                 if (RPG.combatFinch.isLeftWingDown()) {
+                    skl.setName("Kick");
                     dmg = 4;
                     break;
-
+                }
+                if (RPG.combatFinch.isFinchUpsideDown()){
+                    skl.setName("Flip");
+                    dmg = 6;
+                    break;
                 }
                 }
-                
-        }
-        return dmg;
+                return dmg;
+            
     }
 }
-     
-

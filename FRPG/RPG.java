@@ -78,20 +78,33 @@ public class RPG extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void gameRun(){
-       int turn = 0;
+        
        mapFinch.setLED(Color.GREEN);
        combatFinch.setLED(Color.RED);
        r = dungeon.getRoom(1);
+       
        Monster firstEncounter = r.mon[1];
        jTextArea1.setText("Welcome. You encounter a strange being.");
        jTextArea2.setText(firstEncounter.toString()); 
-      
-     
-       int dmg = SkillBook.getSkill(1);
+       
+      while (firstEncounter.isAlive()){
+       int dmg = SkillBook.getSkill();
+       if(SkillBook.turn % 2 != 0){
+       System.out.println(dmg);
+       System.out.println(SkillBook.turn);
        firstEncounter.setHealth(firstEncounter.getHealth()-dmg);
        jTextArea2.setText(firstEncounter.toString());
+       SkillBook.turn++;
+       }
+       else if(SkillBook.turn%2==0){
+           System.out.println(SkillBook.turn);
+           dmg = firstEncounter.getCombatPower();
+          myPlayer.setHealth(myPlayer.getHealth()-dmg);
+          jTextArea2.setText(myPlayer.toString()); 
+          SkillBook.turn++;
+       }
+      }
       
-       
     }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
