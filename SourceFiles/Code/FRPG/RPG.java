@@ -16,7 +16,7 @@ public class RPG extends javax.swing.JFrame {
      Dungeon dungeon = new Dungeon();
      Room r = new Room();
      boolean gameRunning = false;
-     public static Mage myPlayer = new Mage();
+     public static Tank myPlayer = new Tank();
      public static Finch combatFinch = new Finch();
     /**
      * Creates new form RPG
@@ -82,16 +82,23 @@ public class RPG extends javax.swing.JFrame {
        r = dungeon.getRoom(1);
        Monster m = r.mon[1];
        combatFinch.setLED(Color.yellow);
+       int playerTurn = 0;
        
-       gameRunning = true;
+       while(gameRunning = true && m.getHealth()>0 && myPlayer.getHealth()>0){
        
-       int dmg = SkillBook.getSkill(1);
+       if(playerTurn == 0){    
+       int dmg = SkillBook.getSkill();
        m.setHealth(m.getHealth()-dmg);
+       playerTurn = 1;
+       }
+       if(playerTurn == 1){
+       myPlayer.setHealth(myPlayer.getHealth()-m.getCombatPower());    
+       playerTurn = 0;
+       }
        
        
-       myPlayer.setHealth(myPlayer.getHealth()-m.getCombatPower());
        jTextArea2.setText(m.toString() + "\n" + myPlayer.toString());
-       
+    }
     }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
