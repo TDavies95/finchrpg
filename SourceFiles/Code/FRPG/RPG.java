@@ -83,17 +83,20 @@ public class RPG extends javax.swing.JFrame {
        Monster m = r.mon[1];
        combatFinch.setLED(Color.yellow);
 
-       
+       int dmg = 0;
        while(gameRunning = true && m.getHealth()>0 && myPlayer.getHealth()>0){
        
+           if (SkillBook.sequence.isEmpty()) {
+               dmg = SkillBook.getSkill();
+               m.setHealth(m.getHealth() - dmg);
+               myPlayer.setHealth(myPlayer.getHealth() - m.getCombatPower());
+               System.out.println("The " + m.getName() + " retaliates");
+               System.out.println("Player: " + myPlayer.toString());
+               System.out.println("Monster: " + m.toString());
+               System.out.println();
+               jTextArea2.setText(m.toString() + "\n" + myPlayer.toString());
+           }
            
-       int dmg = SkillBook.getSkill();
-       m.setHealth(m.getHealth()-dmg);
-       myPlayer.setHealth(myPlayer.getHealth()-m.getCombatPower());  
-       System.out.println("Player: " + myPlayer.toString());
-       System.out.println("Monster: " + m.toString());
-       System.out.println();
-       jTextArea2.setText(m.toString() + "\n" + myPlayer.toString());
     }
     }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

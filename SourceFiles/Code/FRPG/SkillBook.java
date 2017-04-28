@@ -37,35 +37,39 @@ public class SkillBook {
     public static Skill getSeq() {
         String seq = "";
         while (true) {
-            RPG.combatFinch.sleep(1000);
+            RPG.combatFinch.sleep(900);
             if (RPG.combatFinch.isRightWingDown()) {
                 sequence.add("right");
-                System.out.println("right");
+                System.out.println("Punch");
             }
             if (RPG.combatFinch.isLeftWingDown()) {
                 sequence.add("left");
-                System.out.println("left");
+                System.out.println("Kick");
             }
             if (RPG.combatFinch.isBeakDown()) {
                 sequence.add("down");
-                System.out.println("down");
+                System.out.println("Slam");
             }
-            if (RPG.combatFinch.isBeakUp()) {
+            if (RPG.combatFinch.isFinchLevel()) {
                 break;
             }
 
         }
         for (int i = 0; i < sequence.size(); i++) {
             if(sequence.get(sequence.size()-1).equals("right")){
+                sequence.clear();
                 return sklbook[1];
             }
             if(sequence.get(sequence.size()-1).equals("left")){
+                sequence.clear();
                 return sklbook[2];
             }
             if(sequence.get(sequence.size()-1).equals("down")){
+                sequence.clear();
                 return sklbook[3];
             }
         }
+        sequence.clear();
         return sklbook[0];
     }
     /*
