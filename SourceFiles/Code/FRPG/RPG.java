@@ -82,21 +82,17 @@ public class RPG extends javax.swing.JFrame {
        r = dungeon.getRoom(1);
        Monster m = r.mon[1];
        combatFinch.setLED(Color.yellow);
-       int playerTurn = 0;
+
        
        while(gameRunning = true && m.getHealth()>0 && myPlayer.getHealth()>0){
        
-       if(playerTurn == 0){    
+           
        int dmg = SkillBook.getSkill();
        m.setHealth(m.getHealth()-dmg);
-       playerTurn = 1;
-       }
-       if(playerTurn == 1){
-       myPlayer.setHealth(myPlayer.getHealth()-m.getCombatPower());    
-       playerTurn = 0;
-       }
-       
-       
+       myPlayer.setHealth(myPlayer.getHealth()-m.getCombatPower());  
+       System.out.println("Player: " + myPlayer.toString());
+       System.out.println("Monster: " + m.toString());
+       System.out.println();
        jTextArea2.setText(m.toString() + "\n" + myPlayer.toString());
     }
     }
