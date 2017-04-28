@@ -37,6 +37,7 @@ public class SkillBook {
     public static Skill getSeq() {
         String seq = "";
         while (true) {
+            RPG.combatFinch.sleep(1000);
             if (RPG.combatFinch.isRightWingDown()) {
                 sequence.add("right");
                 System.out.println("right");
