@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class SkillBook {
 
     static ArrayList<String> sequence = new ArrayList<String>();
-    static Skill[] sklbook = {new Skill(0, "Flail", "none"), new Skill(1, "Punch", "right"), new Skill(2, "Kick", "left"), new Skill(3, "Slam","down")};
+    static Skill[] sklbook = {new Skill(0, "Flail", "none"), new Skill(1, "Punch", "right"), new Skill(2, "Kick", "left"), new Skill(3, "Slam", "down")};
 
     public static int getSkill() {
         Skill skl = getSeq();
@@ -13,7 +13,7 @@ public class SkillBook {
         int dmg = 0;
         switch (id) {
             case 0: {
-                dmg = 1;
+                dmg = 20;
                 break;
             }
 
@@ -37,34 +37,34 @@ public class SkillBook {
     public static Skill getSeq() {
         String seq = "";
         while (true) {
-            RPG.combatFinch.sleep(900);
-            if (RPG.combatFinch.isRightWingDown()) {
+            GUI.combatFinch.sleep(900);
+            if (GUI.combatFinch.isRightWingDown()) {
                 sequence.add("right");
                 System.out.println("Punch");
             }
-            if (RPG.combatFinch.isLeftWingDown()) {
+            if (GUI.combatFinch.isLeftWingDown()) {
                 sequence.add("left");
                 System.out.println("Kick");
             }
-            if (RPG.combatFinch.isBeakDown()) {
+            if (GUI.combatFinch.isBeakDown()) {
                 sequence.add("down");
                 System.out.println("Slam");
             }
-            if (RPG.combatFinch.isFinchLevel()) {
+            if (GUI.combatFinch.isFinchLevel()) {
                 break;
             }
 
         }
         for (int i = 0; i < sequence.size(); i++) {
-            if(sequence.get(sequence.size()-1).equals("right")){
+            if (sequence.get(sequence.size() - 1).equals("right")) {
                 sequence.clear();
                 return sklbook[1];
             }
-            if(sequence.get(sequence.size()-1).equals("left")){
+            if (sequence.get(sequence.size() - 1).equals("left")) {
                 sequence.clear();
                 return sklbook[2];
             }
-            if(sequence.get(sequence.size()-1).equals("down")){
+            if (sequence.get(sequence.size() - 1).equals("down")) {
                 sequence.clear();
                 return sklbook[3];
             }
@@ -85,4 +85,3 @@ public class SkillBook {
       return sklbook[0];
      */
 }
-

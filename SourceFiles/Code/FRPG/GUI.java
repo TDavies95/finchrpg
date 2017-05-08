@@ -4,12 +4,22 @@
  * and open the template in the editor.
  */
 package Code.FRPG;
-import java.awt.Toolkit;
+
+import edu.cmu.ri.createlab.terk.robot.finch.Finch;
+import java.awt.Color;
+import java.util.Random;
+
 /**
  *
  * @author gryan
  */
 public class GUI extends javax.swing.JFrame {
+
+    public static Player myPlayer = new Tank();
+    Dungeon dungeon = new Dungeon();
+    Room r = new Room();
+    boolean gameRunning = false;
+    public static Finch combatFinch = new Finch();
 
     /**
      * Creates new form GUI
@@ -146,6 +156,64 @@ public class GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void introDialogue() {
+        
+    }
+
+    private void battle(Player p, Room r) {
+
+        Monster m = r.getMon(1);
+
+        Thread thread = new Thread();
+        thread.start();
+        int dmg = 0;
+        try {
+
+            while (gameRunning = true && m.getHealth() > 0 && p.getHealth() > 0) {
+                if (SkillBook.sequence.isEmpty()) {
+                    Random rnd = new Random();
+                    int critInt = rnd.nextInt(100) + 1;
+                    int dodgeInt = rnd.nextInt(100) + 1;
+                    if (critInt < 5) {
+                        dmg = SkillBook.getSkill() * 2;
+                        combatFinch.setLED(Color.blue, 400);
+                    } else if (dodgeInt < 5) {
+                        dmg = 0;
+                    } else {
+                        dmg = SkillBook.getSkill();
+                    }
+                }
+                m.setHealth(m.getHealth() - dmg);
+                p.setHealth(p.getHealth() - m.getCombatPower());
+                combatPane.setText(m.toString() + "\n" + p.toString());
+                logPane.update(logPane.getGraphics());
+                combatPane.update(combatPane.getGraphics());
+                if (m.getHealth() <= 0) {
+                    myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
+                    m = r.getMon(2);
+                }
+                if (m.getHealth() <= 0) {
+                    myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
+                    m = r.getMon(3);
+                }
+                if (m.getHealth() <= 0) {
+                    myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
+                    m = r.getMon(4);
+                }
+                if (m.getHealth() <= 0) {
+                    myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
+                    m = r.getMon(5);
+                }
+                if (m.getHealth() <= 0) {
+                    myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
+                }
+            }
+
+        } catch (Exception ex) {
+            System.out.println("You fool");
+        }
+
+    }
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
@@ -158,7 +226,12 @@ public class GUI extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        
+        // introDialogue();
+        gameRunning = true;
+        Room r = Dungeon.getRoom(2);
+        Player p = myPlayer;
+        combatFinch.setLED(Color.YELLOW);
+        battle(p, r);
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -187,9 +260,10 @@ public class GUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new GUI().setVisible(true);
             }
