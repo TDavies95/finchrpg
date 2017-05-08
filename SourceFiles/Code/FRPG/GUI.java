@@ -231,7 +231,9 @@ public class GUI extends javax.swing.JFrame {
         Room r = Dungeon.getRoom(1);
         Player p = myPlayer;
         combatFinch.setLED(Color.YELLOW);
-        battle(p, r);
+        //battle(p, r);
+        Obelisk o = new Obelisk(100);
+        o.getOb();
     }//GEN-LAST:event_formWindowOpened
 
     /**
