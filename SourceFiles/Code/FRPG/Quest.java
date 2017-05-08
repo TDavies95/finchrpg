@@ -2,6 +2,7 @@ package Code.FRPG;
 public class Quest {
     private int questId, gpRwd, xpRwd, lvlRq;
     private String name, desc;
+    private boolean isQuestComplete; 
     public Quest(int QuestId){
         this.questId = questId;
         gpRwd = 0; // gold awarded at end of quest
@@ -9,14 +10,16 @@ public class Quest {
         lvlRq = 0; //level requirement to start quest 
         name = ""; // name of the QUEST
         desc = ""; //description of the quest
+        isQuestComplete = false; //makes sure that the quest is complete
     }
-    public Quest(int questId, int gpRwd, int xpRwd, int lvlRq, String name, String desc){
+    public Quest(int questId, int gpRwd, int xpRwd, int lvlRq, String name, String desc, boolean isQuestComplete){
         this.questId = questId; // ID of quest in case of reference maybe?
         this.gpRwd = gpRwd; // gold reward at end of quest
         this.xpRwd = xpRwd; // xp reward at end of quest
         this.lvlRq = lvlRq; // minimum level required to start quest
         this.name = name; // name of quest
         this.desc = desc; // description of quest
+        this.isQuestComplete = isQuestComplete; //makes sure that the quest is complete
     }
     //public trigger(){ how do we create a trigger??
     //}
@@ -41,6 +44,9 @@ public class Quest {
     public void setdesc(String desc){
         this.desc = desc;
     }
+    public void setisQuestComplete(boolean isQuestComplete){
+        this.isQuestComplete = isQuestComplete;
+    }
     
     public int getQuestId(){
         return questId;
@@ -59,6 +65,9 @@ public class Quest {
     }
     public String getdesc(){
         return desc;
+    }
+    public boolean getisQuestComplete(){
+        return isQuestComplete;
     }
 
 }
