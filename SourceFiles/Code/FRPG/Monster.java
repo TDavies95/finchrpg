@@ -15,11 +15,12 @@ public class Monster{
     private Item gold;
     
     public boolean isAlive(){
-        if(health==0)
+        if(health<=0)
             return false;
         return true; 
     }
     public void death(){
+        health = 0;
         combatPower = 0;
     }
     public Monster(){

@@ -228,7 +228,7 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         // introDialogue();
         gameRunning = true;
-        Room r = Dungeon.getRoom(2);
+        Room r = Dungeon.getRoom(1);
         Player p = myPlayer;
         combatFinch.setLED(Color.YELLOW);
         battle(p, r);

@@ -10,6 +10,7 @@ public class Inventory {
   private String name;
   private boolean stack;
   public ArrayList<Item> inventory;
+  private static Gold gold = new Gold();
   
   public Inventory()
     {
