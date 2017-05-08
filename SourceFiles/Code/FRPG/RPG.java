@@ -78,6 +78,9 @@ public class RPG extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void gameRun(){
+        Thread thread = new Thread();
+        thread.start();
+        try{
        jTextArea1.setText("A creature appears..."); 
        r = dungeon.getRoom(1);
        Monster m = r.mon[1];
@@ -95,8 +98,15 @@ public class RPG extends javax.swing.JFrame {
                System.out.println("Monster: " + m.toString());
                System.out.println();
                jTextArea2.setText(m.toString() + "\n" + myPlayer.toString());
+               jTextArea1.update(jTextArea2.getGraphics());
+               jTextArea2.update(jTextArea2.getGraphics());
+               
            }
            
+    }
+    }catch(Exception ex){
+        
+        System.out.println("You goofed m8");
     }
     }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
