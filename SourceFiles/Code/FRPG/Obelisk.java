@@ -33,26 +33,26 @@ public class Obelisk {
         for(int i = 0; i<4;i++){
         if (q == 1) {
             s += "left";
-            q = r.nextInt((4) + 1);
+          //  q = r.nextInt((4) + 1);
         }
-        if (q == 2) {
+        else if (q == 2) {
             s += "right";
-            q = r.nextInt((4) + 1);
+           // q = r.nextInt((4) + 1);
         }
-        if (q == 3) {
+        else if (q == 3) {
             s += "up";
-            q = r.nextInt((4) + 1);
+        //    q = r.nextInt((4) + 1);
         }
-        if (q == 4) {
+        else if (q == 4) {
             s += "down";
-            q = r.nextInt((4) + 1);
+           // q = r.nextInt((4) + 1);
         }
         }
-        System.out.println(s);
 
     }
 
     public int getOb() {
+            System.out.println(s);
             end = time + 10000;
             time = System.currentTimeMillis();
         while (true) {
