@@ -8,6 +8,8 @@ package Code.FRPG;
 import edu.cmu.ri.createlab.terk.robot.finch.Finch;
 import java.awt.Color;
 import java.util.Random;
+import javax.swing.JTextField;
+import javax.swing.plaf.multi.MultiScrollPaneUI;
 
 /**
  *
@@ -168,7 +170,8 @@ public class GUI extends javax.swing.JFrame {
         thread.start();
         int dmg = 0;
         try {
-
+            
+            
             while (gameRunning = true && m.getHealth() > 0 && p.getHealth() > 0) {
                 if (SkillBook.sequence.isEmpty()) {
                     Random rnd = new Random();

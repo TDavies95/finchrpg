@@ -13,20 +13,20 @@ public class SkillBook {
         int dmg = 0;
         switch (id) {
             case 0: {
-                dmg = 40;
+                dmg = 0 * GUI.myPlayer.getCombatPower();
                 break;
             }
 
             case 1: {
-                dmg = 5;
+                dmg = 1*GUI.myPlayer.getCombatPower();;
                 break;
             }
             case 2: {
-                dmg = 4;
+                dmg = (int) 1.5 *GUI.myPlayer.getCombatPower();
                 break;
             }
             case 3: {
-                dmg = 8;
+                dmg = 2 * (int) 1.5 *GUI.myPlayer.getCombatPower();
                 break;
             }
 
@@ -37,7 +37,7 @@ public class SkillBook {
     public static Skill getSeq() {
         String seq = "";
         while (true) {
-            GUI.combatFinch.sleep(900);
+            GUI.combatFinch.sleep(750);
             if (GUI.combatFinch.isRightWingDown()) {
                 sequence.add("right");
                 System.out.println("Punch");

@@ -50,11 +50,11 @@ public class Dungeon {
         switch (id) {
             case 1:
                 r.name = "Dungeon 1";
-                r.mon[1] = new Monster(100, 5, 1500, "Goblin",null,null);
-                r.mon[2] = new Monster(150, 8, 3000, "Skeleton",null,null);
-                r.mon[3] = new Monster(200, 8, 3000, "Slime",null,null);
-                r.mon[4] = new Monster(300, 5, 5000, "Ogre",null,null);
-                r.mon[5] = new Monster(350, 8, 8000, "Elemental Spirit",null,null);
+                r.mon[1] = new Monster(100, 5, 200, "Goblin",null,null);
+                r.mon[2] = new Monster(150, 8, 300, "Skeleton",null,null);
+                r.mon[3] = new Monster(200, 8, 500, "Slime",null,null);
+                r.mon[4] = new Monster(300, 5, 500, "Ogre",null,null);
+                r.mon[5] = new Monster(350, 8, 800, "Elemental Spirit",null,null);
                 break;
             case 2:
                 r.name = "Dungeon 2";
