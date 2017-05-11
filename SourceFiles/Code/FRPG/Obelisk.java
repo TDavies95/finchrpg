@@ -23,70 +23,70 @@ public class Obelisk {
 
     public Obelisk() {
         expReward = 100;
-        s = "leftleftleftleft";
+        s = "leftleftleft";
     }
 
     public Obelisk(int expReward) {
+        Thread thread = new Thread();
+        thread.start();
+        try{
         this.expReward = expReward;
+        int q = 3;
+        for (int i = 0; i < 3; i++) {
+            thread.sleep(100);
+            switch (q) {
 
-        int q = r.nextInt((4) + 1);
-        for(int i = 0; i<4;i++){
-        if (q == 1) {
-            s += "left";
-          //  q = r.nextInt((4) + 1);
-        }
-        else if (q == 2) {
-            s += "right";
-           // q = r.nextInt((4) + 1);
-        }
-        else if (q == 3) {
-            s += "up";
-        //    q = r.nextInt((4) + 1);
-        }
-        else if (q == 4) {
-            s += "down";
-           // q = r.nextInt((4) + 1);
-        }
-        }
-
+                case 1:
+                    s += "left";
+                    q = r.nextInt((3) + 1);
+                    break;
+                case 2:
+                    s += "right";
+                    q = r.nextInt((3) + 1);
+                    break;
+                case 3:
+                    s += "down";
+                    q = r.nextInt((3) + 1);
+                    break;
+                
+            }
+         }
+        }catch(Exception ex){
+        System.out.println("Oops");
+    }
     }
 
+    
+
     public int getOb() {
-            System.out.println(s);
-            end = time + 10000;
-            time = System.currentTimeMillis();
+        System.out.println(s);
+        end = time + 10000;
+        time = System.currentTimeMillis();
+        GUI.combatFinch.sleep(500);
         while (true) {
-            
+
             GUI.combatFinch.sleep(900);
             if (GUI.combatFinch.isRightWingDown()) {
                 sM += "right";
-            }
-            if (GUI.combatFinch.isLeftWingDown()) {
+            } else if (GUI.combatFinch.isLeftWingDown()) {
                 sM += "left";
-            }
-            if (GUI.combatFinch.isBeakDown()) {
+            } else if (GUI.combatFinch.isBeakDown()) {
                 sM += "down";
-            }
-            if (GUI.combatFinch.isBeakDown()) {
-                sM += "up";
-            }
-            if (GUI.combatFinch.isFinchLevel()) {
+            }  else if (GUI.combatFinch.isFinchLevel()) {
                 break;
             }
             System.out.println(sM);
         }
-            if (s.equals(sM)&&time<end) {
-                System.out.println("Correct");
-                return expReward;
-            }
-            if (!s.equals(sM)&&time<end) {
-                System.out.println("Failure");
-                expReward = 0;
-                return expReward;
-            }
+        if (s.equals(sM) && time < end) {
+            System.out.println("Correct");
+            return expReward;
+        }
+        if (!s.equals(sM) && time < end) {
+            System.out.println("Failure");
+            expReward = 0;
+            return expReward;
+        }
         expReward = 0;
         return expReward;
     }
 }
-
-

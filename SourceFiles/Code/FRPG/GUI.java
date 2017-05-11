@@ -183,6 +183,7 @@ public class GUI extends javax.swing.JFrame {
                         dmg = SkillBook.getSkill();
                     }
                 }
+                combatFinch.buzz(500, 200);
                 m.setHealth(m.getHealth() - dmg);
                 p.setHealth(p.getHealth() - m.getCombatPower());
                 combatPane.setText(m.toString() + "\n" + p.toString());
@@ -190,6 +191,8 @@ public class GUI extends javax.swing.JFrame {
                 combatPane.update(combatPane.getGraphics());
                 if (m.getHealth() <= 0) {
                     myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
+                    Player.levelUp(p);
+                    System.out.println(myPlayer.getLVL() + " " + myPlayer.getEXP());
                     m = r.getMon(2);
                 }
                 if (m.getHealth() <= 0) {
@@ -207,6 +210,7 @@ public class GUI extends javax.swing.JFrame {
                 if (m.getHealth() <= 0) {
                     myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
                 }
+                
             }
 
         } catch (Exception ex) {

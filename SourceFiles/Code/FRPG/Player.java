@@ -10,11 +10,11 @@ public abstract class Player {
     private int health;
     private int mana;
     private int combatPower;
-    private int level;
+    private static int level;
     private double luck;
     private double intel;
     private String myClass;
-    private int exp;
+    private static int exp;
 
     public Player() {
         health = mana = combatPower = exp = 0;
@@ -78,20 +78,27 @@ public abstract class Player {
         this.exp = exp;
     }
 
-    public int getEXP() {
+    public static  int getEXP() {
         return exp;
     }
 
-    public void levelUp() {
-        if (getLVL() < 100) {
-            if (getEXP() > 1000) {
-                level++;
-                setEXP(0);
+    public static void levelUp(Player p) {
+        int lvl = p.getLVL();
+        int toLVL = (200*lvl+1000);
+        System.out.println(toLVL);
+        if (p.getLVL() < 100) {
+            if (p.getEXP() >= toLVL) {
+                p.setLVL(p.getLVL()+1);
+                p.setEXP(0);
+            }
+            else{
+                p.setLVL(p.getLVL());
             }
         }
     }
+   
 
-    public int getLVL() {
+    public static int getLVL() {
         return level;
     }
 

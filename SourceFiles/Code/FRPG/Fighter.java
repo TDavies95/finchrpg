@@ -4,8 +4,8 @@ public class Fighter extends Player{
     private int health;
     private int mana;
     private int combatPower;
-    private int exp;
-    private int level;
+    private static int exp;
+    private static int level;
     private double luck;
     private double intel;
     private String type;
@@ -70,6 +70,7 @@ public class Fighter extends Player{
     public void setEXP(int exp){
         super.setEXP(exp);
     }
+    /*
     @Override
     public int getEXP(){
         return super.getEXP();
@@ -82,10 +83,12 @@ public class Fighter extends Player{
     public int getLVL(){
         return super.getLVL();
     }
+*/
     @Override
     public void setLVL(int level){
         super.setLVL(level);
     }
+    
     public void setType(String type){
      this.type = type;   
     }

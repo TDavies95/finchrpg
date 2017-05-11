@@ -13,7 +13,7 @@ public class SkillBook {
         int dmg = 0;
         switch (id) {
             case 0: {
-                dmg = 20;
+                dmg = 40;
                 break;
             }
 

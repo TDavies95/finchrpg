@@ -8,12 +8,12 @@ public class Mage extends Player{
     private int health;
     private int mana;
     private int combatPower;
-    private int level;
+    private static int level;
     private double luck;
     private double intel;
     private String type;
     private String myClass;
-    private int exp;
+    private static int exp;
     
     public Mage(){
         super(50,200,5,1,2,0,1);
@@ -74,6 +74,7 @@ public class Mage extends Player{
     public void setEXP(int exp){
         super.setEXP(exp);
     }
+    /*
     @Override
     public int getEXP(){
         return super.getEXP();
@@ -90,6 +91,7 @@ public class Mage extends Player{
     public void setLVL(int level){
         super.setLVL(level);
     }
+*/
     public void setType(String type){
      this.type = type;   
     }

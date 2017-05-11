@@ -9,8 +9,8 @@ public class Tank extends Player{
     private int health;
     private int mana;
     private int combatPower;
-    private int exp;
-    private int level;
+    private static int exp;
+    private static int level;
     private double luck;
     private double intel;
     private String myClass;
@@ -74,6 +74,7 @@ public class Tank extends Player{
     public void setEXP(int exp){
         super.setEXP(exp);
     }
+    /*
     @Override
     public int getEXP(){
         return super.getEXP();
@@ -86,6 +87,7 @@ public class Tank extends Player{
     public int getLVL(){
         return super.getLVL();
     }
+*/
     @Override
     public void setLVL(int level){
         super.setLVL(level);
