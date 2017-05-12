@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class SkillBook {
 
     static ArrayList<String> sequence = new ArrayList<String>();
-    static Skill[] sklbook = {new Skill(0, "Flail", "none"), new Skill(1, "Punch", "right"), new Skill(2, "Kick", "left"), new Skill(3, "Slam", "down")};
+    static Skill[] sklbook = {new Skill(0, "Flail", "none"), new Skill(1, "Punch", "right"), new Skill(2, "Kick", "left"), new Skill(3, "Slam", "down"),new Skill(4,"Heal","up")};
 
     public static int getSkill() {
         Skill skl = getSeq();
@@ -29,6 +29,12 @@ public class SkillBook {
                 dmg = 2 * (int) 1.5 *GUI.myPlayer.getCombatPower();
                 break;
             }
+            case 4: {
+                
+                GUI.myPlayer.setHealth(GUI.myPlayer.getHealth()+10);
+                
+                
+            }
 
         }
         return dmg;
@@ -49,6 +55,10 @@ public class SkillBook {
             if (GUI.combatFinch.isBeakDown()) {
                 sequence.add("down");
                 System.out.println("Slam");
+            }
+            if (GUI.combatFinch.isBeakUp()) {
+                sequence.add("up");
+                System.out.println("potion");
             }
             if (GUI.combatFinch.isFinchLevel()) {
                 break;

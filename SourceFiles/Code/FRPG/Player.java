@@ -81,7 +81,7 @@ public abstract class Player {
     public static  int getEXP() {
         return exp;
     }
-
+    
     public static void levelUp(Player p) {
         int lvl = p.getLVL();
         int toLVL = (200*lvl+1000);

@@ -10,17 +10,38 @@ public class Item {
     private String name;
     private Buff buff;
     private boolean stack;
+    private int quantity;
+    private int id;
     public Item(){
         value = 0;
         name = "";
         Buff buff = new Buff();
         stack = false;
+        id = 0;
     }
-    public Item(int value, Buff buff, String name, boolean stack){
-        this.value = value;
-        this.buff = buff;
+    public Item(int v, Buff b, String n, boolean s, int i)
+    {
+        value = v;
+        buff = b;
+        name = n;
+        stack = s;
+        id = i;
+    }
+    public Item(String name, int id, int value, int quantity)
+    {
         this.name = name;
-        this.stack = stack;
+        this.id = id;
+        this.value = value;
+        this.quantity = quantity;
+    }
+    public int getQuantity()
+    {
+        return quantity;
+    }
+    public int changeQ(int howmuch)
+    {
+        quantity = quantity-howmuch;
+        return quantity;
     }
     public int getValue(){
         return value;
@@ -43,8 +64,17 @@ public class Item {
     public boolean isEquiped(){
         return true;
     }
+    public int getID()
+    {
+        return id;
+    }
+    /*public int returnIDFromName(String name)
+    {
+        return id;
+    }*/
+    @Override
     public String toString(){
-        return name;
+        return name + " Buff: " + buff + " Value: " + value + " X" + stack;
     }
     public void setStackable(boolean stack){
        this.stack = stack; 

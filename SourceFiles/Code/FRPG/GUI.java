@@ -159,7 +159,24 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void introDialogue() {
-        
+        Thread thread = new Thread();
+        thread.start();
+        try{
+        String s = "You awake in a damp room.... Something seems vaguely familiar....";
+        String q = "";
+        for(int i = 0; i<s.length();i++){
+            q+=s.substring(i, i+1);
+            logPane.setText(q);
+            logPane.update(logPane.getGraphics());
+            if(q.substring(i, i + 1).equals(".")){
+                thread.sleep(350);
+            }else{
+            thread.sleep(70);
+            }
+        }
+        }catch(Exception x){
+            System.out.println("oops");
+        }
     }
 
     private void battle(Player p, Room r) {
@@ -235,6 +252,7 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         // introDialogue();
         gameRunning = true;
+        introDialogue();
         Room r = Dungeon.getRoom(1);
         Player p = myPlayer;
         combatFinch.setLED(Color.YELLOW);
