@@ -159,10 +159,12 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void introDialogue() {
+        int z = 0;
+        while(z == 0){
         Thread thread = new Thread();
         thread.start();
         try{
-        String s = "You awake in a damp room.... Something seems vaguely familiar....";
+        String s = "You awake in a damp room, yet something seems vaguely familiar. You lumber forward into the next room.....";
         String q = "";
         for(int i = 0; i<s.length();i++){
             q+=s.substring(i, i+1);
@@ -173,16 +175,24 @@ public class GUI extends javax.swing.JFrame {
             }else{
             thread.sleep(70);
             }
+            
         }
+        thread.sleep(2000);
+        
         }catch(Exception x){
             System.out.println("oops");
         }
+        z=1;
+        }
     }
-
+    public void sayName(Monster m){
+        logPane.setText("A "+ m.getName() + " approaches.");
+        logPane.update(logPane.getGraphics());
+    }
     private void battle(Player p, Room r) {
 
         Monster m = r.getMon(1);
-
+        
         Thread thread = new Thread();
         thread.start();
         int dmg = 0;
@@ -190,6 +200,7 @@ public class GUI extends javax.swing.JFrame {
             
             
             while (gameRunning = true && m.getHealth() > 0 && p.getHealth() > 0) {
+                sayName(m);
                 if (SkillBook.sequence.isEmpty()) {
                     Random rnd = new Random();
                     int critInt = rnd.nextInt(100) + 1;
@@ -207,7 +218,7 @@ public class GUI extends javax.swing.JFrame {
                 m.setHealth(m.getHealth() - dmg);
                 p.setHealth(p.getHealth() - m.getCombatPower());
                 combatPane.setText(m.toString() + "\n" + p.toString());
-                logPane.update(logPane.getGraphics());
+                
                 combatPane.update(combatPane.getGraphics());
                 if (m.getHealth() <= 0) {
                     myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
@@ -251,14 +262,15 @@ public class GUI extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         // introDialogue();
+        
         gameRunning = true;
         introDialogue();
         Room r = Dungeon.getRoom(1);
         Player p = myPlayer;
         combatFinch.setLED(Color.YELLOW);
-        //battle(p, r);
-        Obelisk o = new Obelisk(100);
-        o.getOb();
+        battle(p, r);
+        //Obelisk o = new Obelisk(100);
+        //o.getOb();
     }//GEN-LAST:event_formWindowOpened
 
     /**

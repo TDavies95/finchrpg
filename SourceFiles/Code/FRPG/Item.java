@@ -40,7 +40,7 @@ public class Item {
     }
     public int changeQ(int howmuch)
     {
-        quantity = quantity-howmuch;
+        quantity = quantity+howmuch;
         return quantity;
     }
     public int getValue(){

@@ -10,12 +10,12 @@ package Code.FRPG;
  * @author 53548
  */
 public class ItemBook {
-    Item[] itembook = {new Item("Health Potion",0,10,50)};
-    public Item getItem(int id)
+    static Item[] itembook = {new Item("Health Potion",0,10,50)};
+    public static Item getItem(int id)
     {
       switch(id){
           case 0:{
-              itembook[0].changeQ(1);
+              itembook[0].changeQ(-1);
               return itembook[0];
           }
       }

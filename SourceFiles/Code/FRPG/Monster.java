@@ -69,6 +69,7 @@ public class Monster{
     public Item getGold(){
         return gold;
     }
+    
     public Monster createMonster(){
         
      return new Monster(100,20,0,"Monster",null,null);

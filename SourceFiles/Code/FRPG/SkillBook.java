@@ -13,7 +13,7 @@ public class SkillBook {
         int dmg = 0;
         switch (id) {
             case 0: {
-                dmg = 0 * GUI.myPlayer.getCombatPower();
+                dmg = 20 * GUI.myPlayer.getCombatPower();
                 break;
             }
 
@@ -58,7 +58,13 @@ public class SkillBook {
             }
             if (GUI.combatFinch.isBeakUp()) {
                 sequence.add("up");
-                System.out.println("potion");
+                int currHP = GUI.myPlayer.getHealth();
+                if(ItemBook.getItem(0).getQuantity()>0){
+                    GUI.myPlayer.setHealth(GUI.myPlayer.getHealth()+10);
+                    System.out.println("Potions remaining: " + ItemBook.getItem(0).getQuantity());
+                }else{
+                    System.out.println("You're out of potions.");
+                }
             }
             if (GUI.combatFinch.isFinchLevel()) {
                 break;

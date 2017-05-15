@@ -11,7 +11,7 @@ package Code.FRPG;
 public class Gold extends Item{
     
     public Gold(){   
-    super(1,null,"Gold",true);
+  
 }
     
 }

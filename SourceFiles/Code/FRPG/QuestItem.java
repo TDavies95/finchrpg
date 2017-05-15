@@ -11,10 +11,5 @@ package Code.FRPG;
  */
 public class QuestItem extends Item{
     
-    public QuestItem(){   
-    super(0,new Buff(),"",false);
-}
-    public QuestItem(int value, Buff buff, String name, boolean stack){
-        super(value, buff, name, stack);
-    }      
+
 }
