@@ -13,7 +13,7 @@ public class SkillBook {
         int dmg = 0;
         switch (id) {
             case 0: {
-                dmg = 20 * GUI.myPlayer.getCombatPower();
+                dmg = 0 * GUI.myPlayer.getCombatPower();
                 break;
             }
 
@@ -32,7 +32,7 @@ public class SkillBook {
             case 4: {
                 
                 GUI.myPlayer.setHealth(GUI.myPlayer.getHealth()+10);
-                
+                break;
                 
             }
 
