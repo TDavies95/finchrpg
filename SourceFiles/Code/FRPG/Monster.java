@@ -12,7 +12,7 @@ public class Monster{
     private int expReward;
     private String name;
     private Item drop;
-    private Item gold;
+    private int gold;
     
     public boolean isAlive(){
         if(health<=0)
@@ -26,12 +26,13 @@ public class Monster{
     public Monster(){
         health=combatPower=expReward=0;
     }
-    public Monster(int h, int c,int x, String name,Item drop, Item goldReward){
+    public Monster(int h, int c,int x, String name,Item drop, int g){
         health = h;
         combatPower = c;
         this.name = name;
         expReward = x;
         this.drop = drop;
+        gold = g;
     }
     public void setHealth(int health){
         this.health = health;
@@ -63,20 +64,20 @@ public class Monster{
     public Item getDrop(){
         return drop;
     }
-    public void setGold(Item gold){
+    public void setGold(int gold){
         this.gold = gold;
     }
-    public Item getGold(){
+    public int getGold(){
         return gold;
     }
     
     public Monster createMonster(){
         
-     return new Monster(100,20,0,"Monster",null,null);
+     return new Monster(100,20,0,"Monster",null,0);
         
     } 
     @Override
     public String toString(){
-        return "Name: " + name + " Health: " + health + " CP: " + combatPower;
+        return "Name: " + name + " Health: " + health + " CP: " + combatPower + " Gold: " + gold;
     }
 }

@@ -13,7 +13,7 @@ public class SkillBook {
         int dmg = 0;
         switch (id) {
             case 0: {
-                dmg = 0 * GUI.myPlayer.getCombatPower();
+                dmg = 50 * GUI.myPlayer.getCombatPower();
                 break;
             }
 

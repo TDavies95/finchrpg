@@ -5,49 +5,39 @@ import java.util.*;
  * @author Tim
  */
 public class Inventory {
-   
-  private Map<String, Integer> map = new HashMap<String, Integer>();
-  private String name;
-  private boolean stack;
-  public ArrayList<Item> inventory;
-  private static Gold gold = new Gold();
-  
-  public Inventory()
-    {
-      name = "";
-      stack = false;
-      //inventory = new ArrayList<>();
+    private static ArrayList<Item> inventory = new ArrayList<Item>();
+
+    /**
+     * @return the inventory
+     */
+    public static ArrayList<Item> getInventory() {
+        return inventory;
     }
-  public void foundItem(Item item)
-  {
-    name = item.getName();
-    stack = item.getStackable();
-    if(map.containsKey(name) == true && stack == true)
-    {
-      if(map.get(name) <= 30)
-      {
-        int temp = map.get(name) + 1;
-        map.put(name,temp);
-      }
-      else
-        System.out.println(name + " is full");
+
+    /**
+     * @param aInventory the inventory to set
+     */
+    public static void setInventory(ArrayList<Item> aInventory) {
+        inventory = aInventory;
     }
-    else
-    {
-      map.put(name,1);
-      inventory.add(item);
+    /**
+     * @return the map
+     */
+    public void addItem(Item i, int ind){
+        inventory.add(ind, i);
     }
-  }
-    public Item getItem(int pos){
-        for (Item n : inventory){
-            return inventory.get(pos);
-        }
-        return inventory.get(0);
+    public void removeItem(int ind){
+        inventory.remove(ind);
     }
-    public void useItem(Item item)
-    {
-      if( item.getStackable() == true)
-        map.put(item.getName(),map.get(item.getName()) - 1);
+    public Item getItem(int i){
+        return inventory.get(i);
     }
-    
+    public Item changeQ(int i, int c){
+        inventory.get(i).changeQ(c);
+        return inventory.get(i);
+    }
+    public String toString(){
+        return inventory.get(0).getName();
+        
+    }
 }

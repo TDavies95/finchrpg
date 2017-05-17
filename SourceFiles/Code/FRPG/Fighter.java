@@ -12,11 +12,11 @@ public class Fighter extends Player{
     private String myClass;
     
     public Fighter(){
-        super(100,75,20,5,1,0,1);
+        super(100,75,20,5,1,0,1,new Inventory());
         myClass = "Fighter";
     }
     public Fighter(int h, int m, int c , int l, int i,int x,int lv){
-        super(h,m,c,l,i,x,lv);
+        super(h,m,c,l,i,x,lv,new Inventory());
         myClass = "Fighter";
     }
     public void setClass(){
@@ -103,6 +103,6 @@ public class Fighter extends Player{
     }
     @Override
     public String toString(){
-        return "Health: " + super.getHealth() + " Mana: " + super.getMana() + " CP: " + super.getCombatPower();
+        return super.toString();
     }
 }

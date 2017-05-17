@@ -1,4 +1,5 @@
 package Code.FRPG;
+
 public class Quest {
     private int questId, gpRwd, xpRwd, lvlRq;
     private String name, desc;

@@ -40,8 +40,8 @@ public class Item {
     }
     public int changeQ(int howmuch)
     {
-        quantity = quantity+howmuch;
-        return quantity;
+        setQuantity(getQuantity() + howmuch);
+        return getQuantity();
     }
     public int getValue(){
         return value;
@@ -74,13 +74,20 @@ public class Item {
     }*/
     @Override
     public String toString(){
-        return name + " Buff: " + buff + " Value: " + value + " X" + stack;
+        return name + "Value: " + value + "Quantity: " + getQuantity();
     }
     public void setStackable(boolean stack){
        this.stack = stack; 
     }
     public boolean getStackable(){
          return stack;
+    }
+
+    /**
+     * @param quantity the quantity to set
+     */
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
     
 }

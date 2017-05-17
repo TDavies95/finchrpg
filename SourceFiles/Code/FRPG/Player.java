@@ -6,6 +6,20 @@ package Code.FRPG;
  */
 public abstract class Player {
 
+    /**
+     * @return the inv
+     */
+    public Inventory getInv() {
+        return inv;
+    }
+
+    /**
+     * @param inv the inv to set
+     */
+    public void setInv(Inventory inv) {
+        this.inv = inv;
+    }
+
     // TD - Instantiating and constructors created 
     private int health;
     private int mana;
@@ -15,7 +29,8 @@ public abstract class Player {
     private double intel;
     private String myClass;
     private static int exp;
-
+    private Inventory inv = new Inventory();
+    
     public Player() {
         health = mana = combatPower = exp = 0;
         luck = intel = 0;
@@ -23,7 +38,7 @@ public abstract class Player {
         level = 1;
     }
 
-    public Player(int h, int m, int c, int l, int i, int x, int lv) {
+    public Player(int h, int m, int c, int l, int i, int x, int lv, Inventory inv) {
         health = h;
         mana = m;
         combatPower = c;
@@ -32,6 +47,7 @@ public abstract class Player {
         myClass = "";
         exp = x;
         level = lv;
+        this.inv = inv;
     }
 
     public void setHealth(int health) {
@@ -85,7 +101,6 @@ public abstract class Player {
     public static void levelUp(Player p) {
         int lvl = p.getLVL();
         int toLVL = (200*lvl+1000);
-        System.out.println(toLVL);
         if (p.getLVL() < 100) {
             if (p.getEXP() >= toLVL) {
                 p.setLVL(p.getLVL()+1);
@@ -117,6 +132,6 @@ public abstract class Player {
 
     @Override
     public String toString() {
-        return "Health: " + health + " Mana: " + mana + " CP: " + combatPower;
+        return "Health: " + health + " Mana: " + mana + " CP: " + combatPower + " LVL: " + level + " Gold: " + inv.getItem(1).getQuantity();
     }
 }

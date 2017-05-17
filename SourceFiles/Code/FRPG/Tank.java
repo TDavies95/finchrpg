@@ -14,13 +14,14 @@ public class Tank extends Player{
     private double luck;
     private double intel;
     private String myClass;
+   
     
     public Tank(){
-        super(200,100,10,1,1,0,1);
+        super(200,100,10,1,1,0,1,new Inventory());
         myClass = "Tank";
     }
     public Tank(int h, int m, int c , int l, int i,int x,int lv){
-        super(h,m,c,l,i,x,lv);
+        super(h,m,c,l,i,x,lv,new Inventory());
         myClass = "Tank";
     }
     public void setClass(){
@@ -94,6 +95,6 @@ public class Tank extends Player{
     }
     @Override
     public String toString(){
-        return "Health: " + super.getHealth() + " Mana: " + super.getMana() + " CP: " + super.getCombatPower();
+        return super.toString();
     }
 }

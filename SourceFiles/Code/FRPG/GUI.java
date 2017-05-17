@@ -10,8 +10,6 @@ package Code.FRPG;
 import edu.cmu.ri.createlab.terk.robot.finch.Finch;
 import java.awt.Color;
 import java.util.Random;
-import javax.swing.JTextField;
-import javax.swing.plaf.multi.MultiScrollPaneUI;
 
 /**
  *
@@ -24,7 +22,7 @@ public class GUI extends javax.swing.JFrame {
     Room r = new Room();
     boolean gameRunning = false;
     public static Finch combatFinch = new Finch();
-
+    
     /**
      * Creates new form GUI
      */
@@ -60,7 +58,6 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FINCH RPG");
-        setAlwaysOnTop(true);
         setBackground(new java.awt.Color(91, 135, 49));
         setFont(new java.awt.Font("Microsoft Tai Le", 0, 18)); // NOI18N
         setUndecorated(true);
@@ -161,6 +158,7 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void introDialogue() {
+        
         int z = 0;
         while(z == 0){
         Thread thread = new Thread();
@@ -186,15 +184,46 @@ public class GUI extends javax.swing.JFrame {
         }
         z=1;
         }
+    } private void Dialogue1() {
+        
+        int z = 0;
+        while(z == 0){
+        Thread thread = new Thread();
+        thread.start();
+        try{
+        combatPane.setText("");
+        combatPane.update(combatPane.getGraphics());
+        String s = "You exit the first dungeon and are greeted by a harsh sunlight.";
+        String q = "";
+        for(int i = 0; i<s.length();i++){
+            q+=s.substring(i, i+1);
+            logPane.setText(q);
+            logPane.update(logPane.getGraphics());
+            if(q.substring(i, i + 1).equals(".")){
+                thread.sleep(350);
+            }else{
+            thread.sleep(70);
+            }
+            
+        }
+        thread.sleep(2000);
+        
+        }catch(Exception x){
+            System.out.println("oops");
+        }
+        z=1;
+        }
     }
     public void sayName(Monster m){
         logPane.setText("A "+ m.getName() + " approaches.");
         logPane.update(logPane.getGraphics());
     }
     private void battle(Player p, Room r) {
-
+        int z = 0;
+        int currGold = myPlayer.getInv().getItem(1).getQuantity();
+        System.out.println(currGold);
+        while(z==0){
         Monster m = r.getMon(1);
-        
         Thread thread = new Thread();
         thread.start();
         int dmg = 0;
@@ -224,24 +253,50 @@ public class GUI extends javax.swing.JFrame {
                 combatPane.update(combatPane.getGraphics());
                 if (m.getHealth() <= 0) {
                     myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
+                    currGold = currGold + m.getGold();
+                    m.setGold(0);
+                    System.out.println(currGold);
+                    myPlayer.getInv().getItem(1).setQuantity(currGold);
+                    thread.sleep(100);
                     Player.levelUp(p);
-                    System.out.println(myPlayer.getLVL() + " " + myPlayer.getEXP());
                     m = r.getMon(2);
                 }
                 if (m.getHealth() <= 0) {
                     myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
+                    currGold = currGold + m.getGold();
+                    m.setGold(0);
+                    myPlayer.getInv().getItem(1).setQuantity(currGold);
+                    thread.sleep(100);
+                    Player.levelUp(p);
                     m = r.getMon(3);
                 }
                 if (m.getHealth() <= 0) {
                     myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
+                    currGold = currGold + m.getGold();
+                    m.setGold(0);
+                    myPlayer.getInv().getItem(1).setQuantity(currGold);
+                    thread.sleep(100);
+                    Player.levelUp(p);
                     m = r.getMon(4);
                 }
                 if (m.getHealth() <= 0) {
                     myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
+                    currGold = currGold + m.getGold();
+                    m.setGold(0);
+                    myPlayer.getInv().getItem(1).setQuantity(currGold);
+                    thread.sleep(100);
+                    Player.levelUp(p);
                     m = r.getMon(5);
                 }
                 if (m.getHealth() <= 0) {
+                    currGold = currGold + m.getGold();
+                    m.setGold(0);
+                    myPlayer.getInv().getItem(1).setQuantity(currGold);
                     myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
+                    thread.sleep(100);
+                    Player.levelUp(p);
+                    thread.sleep(4000);
+                     z=1;
                 }
                 
             }
@@ -249,7 +304,8 @@ public class GUI extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println("You fool");
         }
-
+        }
+       
     }
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -264,13 +320,16 @@ public class GUI extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         // introDialogue();
-        
+
         gameRunning = true;
         introDialogue();
         Room r = Dungeon.getRoom(1);
         Player p = myPlayer;
+        myPlayer.getInv().addItem(ItemBook.getItem(0), 0);
+        myPlayer.getInv().addItem(ItemBook.getItem(1), 1);
         combatFinch.setLED(Color.YELLOW);
         battle(p, r);
+        Dialogue1();
         //Obelisk o = new Obelisk(100);
         //o.getOb();
     }//GEN-LAST:event_formWindowOpened
