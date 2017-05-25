@@ -13,7 +13,7 @@ public class SkillBook {
         int dmg = 0;
         switch (id) {
             case 0: {
-                dmg = 50 * GUI.myPlayer.getCombatPower();
+                dmg = 0 * GUI.myPlayer.getCombatPower();
                 break;
             }
 
@@ -32,6 +32,7 @@ public class SkillBook {
             case 4: {
                 
                 GUI.myPlayer.setHealth(GUI.myPlayer.getHealth()+10);
+                ItemBook.itembook[0].changeQ(-1);
                 break;
                 
             }
@@ -46,24 +47,32 @@ public class SkillBook {
             GUI.combatFinch.sleep(750);
             if (GUI.combatFinch.isRightWingDown()) {
                 sequence.add("right");
-                System.out.println("Punch");
+                GUI.jTextArea1.setText("Slash");
+                GUI.jTextArea1.update(GUI.jTextArea1.getGraphics());
             }
             if (GUI.combatFinch.isLeftWingDown()) {
                 sequence.add("left");
-                System.out.println("Kick");
+                GUI.jTextArea1.setText("Sweep");
+                GUI.jTextArea1.update(GUI.jTextArea1.getGraphics());
             }
             if (GUI.combatFinch.isBeakDown()) {
                 sequence.add("down");
-                System.out.println("Slam");
+                GUI.jTextArea1.setText("Jab");
+                GUI.jTextArea1.update(GUI.jTextArea1.getGraphics());
             }
             if (GUI.combatFinch.isBeakUp()) {
                 sequence.add("up");
                 int currHP = GUI.myPlayer.getHealth();
-                if(ItemBook.getItem(0).getQuantity()>0){
-                    GUI.myPlayer.setHealth(GUI.myPlayer.getHealth()+10);
-                    System.out.println("Potions remaining: " + ItemBook.getItem(0).getQuantity());
+                while(sequence.equals("up")){
+                if(ItemBook.getItem(0).getQuantity()>0 && GUI.myPlayer.getHealth() < GUI.myPlayer.maxHealth){
+                    
+                    if(GUI.myPlayer.getHealth() > GUI.myPlayer.maxHealth){
+                        GUI.myPlayer.setHealth(GUI.myPlayer.maxHealth);
+                    }
+                    
                 }else{
                     System.out.println("You're out of potions.");
+                }
                 }
             }
             if (GUI.combatFinch.isFinchLevel()) {
@@ -83,6 +92,10 @@ public class SkillBook {
             if (sequence.get(sequence.size() - 1).equals("down")) {
                 sequence.clear();
                 return sklbook[3];
+            }
+            if (sequence.get(sequence.size() - 1).equals("up")) {
+                sequence.clear();
+                return sklbook[4];
             }
         }
         sequence.clear();

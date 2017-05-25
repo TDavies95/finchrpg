@@ -15,7 +15,8 @@ public class ItemBook {
     {
       switch(id){
           case 0:{
-              itembook[0].changeQ(-1);
+             
+              
               return itembook[0];
           }
           case 1:{

@@ -10,13 +10,16 @@ package Code.FRPG;
 import edu.cmu.ri.createlab.terk.robot.finch.Finch;
 import java.awt.Color;
 import java.util.Random;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author gryan
  */
 public class GUI extends javax.swing.JFrame {
-
+    
+    
     public static Player myPlayer = new Tank();
     Dungeon dungeon = new Dungeon();
     Room r = new Room();
@@ -43,14 +46,11 @@ public class GUI extends javax.swing.JFrame {
         combatPane = new javax.swing.JTextArea();
         logScrollPane = new javax.swing.JScrollPane();
         logPane = new javax.swing.JTextArea();
-        spritePanel = new javax.swing.JPanel();
-        invTab = new javax.swing.JTabbedPane();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
         RPGMenu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -75,34 +75,17 @@ public class GUI extends javax.swing.JFrame {
         logPane.setRows(5);
         logScrollPane.setViewportView(logPane);
 
-        javax.swing.GroupLayout spritePanelLayout = new javax.swing.GroupLayout(spritePanel);
-        spritePanel.setLayout(spritePanelLayout);
-        spritePanelLayout.setHorizontalGroup(
-            spritePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 248, Short.MAX_VALUE)
-        );
-        spritePanelLayout.setVerticalGroup(
-            spritePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jTextArea4.setColumns(20);
+        jTextArea4.setRows(5);
+        jScrollPane5.setViewportView(jTextArea4);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
-        invTab.addTab("Inv", jScrollPane2);
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane3.setViewportView(jTextArea2);
-
-        invTab.addTab("Stats", jScrollPane3);
-
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane4.setViewportView(jTextArea3);
-
-        invTab.addTab("Equips", jScrollPane4);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Code/FRPG/images/boss1.png"))); // NOI18N
+        jLabel2.setLabelFor(jLabel2);
+        jLabel2.setToolTipText("");
 
         jMenu1.setText("File");
 
@@ -133,24 +116,33 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(invTab)
+                    .addComponent(jScrollPane5)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(spritePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(logScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(78, 78, 78)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(logScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(invTab, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                        .addComponent(logScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(logScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
-                    .addComponent(spritePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -171,9 +163,9 @@ public class GUI extends javax.swing.JFrame {
             logPane.setText(q);
             logPane.update(logPane.getGraphics());
             if(q.substring(i, i + 1).equals(".")){
-                thread.sleep(350);
+                thread.sleep(300);
             }else{
-            thread.sleep(70);
+            thread.sleep(55);
             }
             
         }
@@ -214,15 +206,233 @@ public class GUI extends javax.swing.JFrame {
         z=1;
         }
     }
-    public void sayName(Monster m){
-        logPane.setText("A "+ m.getName() + " approaches.");
+    private void Dialogue2() {
+        
+        int z = 0;
+        while(z == 0){
+        Thread thread = new Thread();
+        thread.start();
+        try{
+        combatPane.setText("");
+        combatPane.update(combatPane.getGraphics());
+        String s = "You exit the first dungeon and are greeted by a harsh sunlight.";
+        String q = "";
+        for(int i = 0; i<s.length();i++){
+            q+=s.substring(i, i+1);
+            logPane.setText(q);
+            logPane.update(logPane.getGraphics());
+            if(q.substring(i, i + 1).equals(".")){
+                thread.sleep(350);
+            }else{
+            thread.sleep(70);
+            }
+            
+        }
+        thread.sleep(2000);
+        
+        }catch(Exception x){
+            System.out.println("oops");
+        }
+        z=1;
+        }
+    }
+    private void Dialogue3() {
+        
+        int z = 0;
+        while(z == 0){
+        Thread thread = new Thread();
+        thread.start();
+        try{
+        combatPane.setText("");
+        combatPane.update(combatPane.getGraphics());
+        String s = "You exit the first dungeon and are greeted by a harsh sunlight.";
+        String q = "";
+        for(int i = 0; i<s.length();i++){
+            q+=s.substring(i, i+1);
+            logPane.setText(q);
+            logPane.update(logPane.getGraphics());
+            if(q.substring(i, i + 1).equals(".")){
+                thread.sleep(350);
+            }else{
+            thread.sleep(70);
+            }
+            
+        }
+        thread.sleep(2000);
+        
+        }catch(Exception x){
+            System.out.println("oops");
+        }
+        z=1;
+        }
+    }
+    private void Dialogue4() {
+        
+        int z = 0;
+        while(z == 0){
+        Thread thread = new Thread();
+        thread.start();
+        try{
+        combatPane.setText("");
+        combatPane.update(combatPane.getGraphics());
+        String s = "You exit the first dungeon and are greeted by a harsh sunlight.";
+        String q = "";
+        for(int i = 0; i<s.length();i++){
+            q+=s.substring(i, i+1);
+            logPane.setText(q);
+            logPane.update(logPane.getGraphics());
+            if(q.substring(i, i + 1).equals(".")){
+                thread.sleep(350);
+            }else{
+            thread.sleep(70);
+            }
+            
+        }
+        thread.sleep(2000);
+        
+        }catch(Exception x){
+            System.out.println("oops");
+        }
+        z=1;
+        }
+    }
+    private void Dialogue5() {
+        
+        int z = 0;
+        while(z == 0){
+        Thread thread = new Thread();
+        thread.start();
+        try{
+        combatPane.setText("");
+        combatPane.update(combatPane.getGraphics());
+        String s = "You exit the first dungeon and are greeted by a harsh sunlight.";
+        String q = "";
+        for(int i = 0; i<s.length();i++){
+            q+=s.substring(i, i+1);
+            logPane.setText(q);
+            logPane.update(logPane.getGraphics());
+            if(q.substring(i, i + 1).equals(".")){
+                thread.sleep(350);
+            }else{
+            thread.sleep(70);
+            }
+            
+        }
+        thread.sleep(2000);
+        
+        }catch(Exception x){
+            System.out.println("oops");
+        }
+        z=1;
+        }
+    }
+    public void town(){
+        int z = 0;
+        while(z==0){
+        Thread thread = new Thread();
+        thread.start();
+        try{
+        combatPane.setText("");
+        combatPane.update(combatPane.getGraphics());
+        logPane.setText("You encounter a shop between dungeons. Tilt up for potions, down to proceed.");
         logPane.update(logPane.getGraphics());
+        while(z==0){
+            
+            if(combatFinch.isBeakUp()){
+                if(myPlayer.getHealth()<myPlayer.maxHealth){
+                myPlayer.getInv().changeQ(1, -10);
+                myPlayer.getInv().changeQ(0, 1);
+                combatPane.setText("You've purchased a potion" + "\nPotions remaining: " + myPlayer.getInv().getItem(0).getQuantity()+"\nGold remaining: " + myPlayer.getInv().getItem(1).getQuantity());
+                combatPane.update(combatPane.getGraphics());
+                }else if(myPlayer.getHealth()<myPlayer.maxHealth){
+                    myPlayer.setHealth(myPlayer.maxHealth);
+                }
+            }
+            if(combatFinch.isBeakDown()){
+                z=1;
+            }
+        }
+        
+        }catch(Exception ex){
+            System.out.println("oops");
+        }
+        }
+    }
+    public void bossDialogue(Monster m){
+      
+               int z = 0;
+        while(z == 0){
+        Thread thread = new Thread();
+        thread.start();
+        try{
+        String s = m.getBossDialogue();
+        String q = "";
+        for(int i = 0; i<s.length();i++){
+            q+=s.substring(i, i+1);
+            logPane.setText(q);
+            logPane.update(logPane.getGraphics());
+            if(q.substring(i, i + 1).equals(".")){
+                thread.sleep(350);
+            }else{
+            thread.sleep(70);
+            }
+            
+        }
+        thread.sleep(2000);
+        
+        }catch(Exception x){
+            System.out.println("oops");
+        }
+        
+        z=1;
+        }
+        
+    }
+    public void reset(){
+            logPane.setText("Game Over.");
+            logPane.update(logPane.getGraphics());
+            combatFinch.sleep(5000);
+            System.exit(0);
+            combatFinch.quit();
+            
+    }
+    public void sayName(Monster m){
+        if(m.getBossDialogue().equals("")){
+            int z = 0;
+        while(z == 0){
+        Thread thread = new Thread();
+        thread.start();
+        String s= "";
+        try{
+
+        
+        
+        String q = "";
+        for(int i = 0; i<s.length();i++){
+            q+=s.substring(i, i+1);
+            logPane.setText(q);
+            logPane.update(logPane.getGraphics());
+            if(q.substring(i, i + 1).equals(".")){
+                thread.sleep(350);
+            }else{
+            thread.sleep(70);
+            }
+            
+        }
+        
+        }catch(Exception x){
+            System.out.println("oops");
+        }
+        z=1;
+        }
+    }
     }
     private void battle(Player p, Room r) {
+        
         int z = 0;
         int currGold = myPlayer.getInv().getItem(1).getQuantity();
-        System.out.println(currGold);
         while(z==0){
+            
         Monster m = r.getMon(1);
         Thread thread = new Thread();
         thread.start();
@@ -231,71 +441,91 @@ public class GUI extends javax.swing.JFrame {
             
             
             while (gameRunning = true && m.getHealth() > 0 && p.getHealth() > 0) {
-                sayName(m);
+                
+                combatPane.setText(m.toString() + "\n" + p.toString());
+                combatPane.update(combatPane.getGraphics());
+               jTextArea4.setText("Potions remaining: " + ItemBook.getItem(0).getQuantity() + "\n" + "Current EXP: " +myPlayer.getEXP() + "\n" + "EXP to Level: " + myPlayer.getToLVL()+ "\n" + myPlayer.toString());
+               jTextArea4.update(jTextArea4.getGraphics());
+                jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Code/FRPG/images/background.png"))); // NOI18N
+                jLabel2.setLabelFor(jLabel2);
+                jLabel2.update(jLabel2.getGraphics());
+                
+                jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource(m.getMonsters()))); // NOI18N
+                jLabel2.setLabelFor(jLabel2);
+                jLabel2.update(jLabel2.getGraphics());
+                
+                
                 if (SkillBook.sequence.isEmpty()) {
                     Random rnd = new Random();
                     int critInt = rnd.nextInt(100) + 1;
                     int dodgeInt = rnd.nextInt(100) + 1;
+                   
                     if (critInt < 5) {
                         dmg = SkillBook.getSkill() * 2;
                         combatFinch.setLED(Color.blue, 400);
+                        
                     } else if (dodgeInt < 5) {
                         dmg = 0;
                     } else {
                         dmg = SkillBook.getSkill();
+                        if(combatFinch.isBeakUp()){
+                        
+                    }
                     }
                 }
+                
                 combatFinch.buzz(500, 200);
                 m.setHealth(m.getHealth() - dmg);
                 p.setHealth(p.getHealth() - m.getCombatPower());
-                combatPane.setText(m.toString() + "\n" + p.toString());
-                
-                combatPane.update(combatPane.getGraphics());
+                if(myPlayer.getHealth()<=0){
+                    reset();
+                }
+                Player.levelUp(p);
+                jTextArea4.setText("Potions remaining: " + ItemBook.getItem(0).getQuantity() + "\n" + "Current EXP: " +myPlayer.getEXP() + "\n" + "EXP to Level: " + myPlayer.getToLVL());
+                jTextArea4.update(jTextArea4.getGraphics());
                 if (m.getHealth() <= 0) {
+                    
                     myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
                     currGold = currGold + m.getGold();
                     m.setGold(0);
-                    System.out.println(currGold);
+                    m.setEXP(0);
                     myPlayer.getInv().getItem(1).setQuantity(currGold);
                     thread.sleep(100);
                     Player.levelUp(p);
+                    jTextArea4.setText("Potions remaining: " + ItemBook.getItem(0).getQuantity() + "\n" + "Current EXP: " +myPlayer.getEXP() + "\n" + "EXP to Level: " + myPlayer.getToLVL());
+                    jTextArea4.update(jTextArea4.getGraphics());
+                    if(myPlayer.getHealth()<=0){
+                    reset();
+                }
+                    if(r.getMon(1).getHealth()<=0){
                     m = r.getMon(2);
-                }
-                if (m.getHealth() <= 0) {
-                    myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
-                    currGold = currGold + m.getGold();
-                    m.setGold(0);
-                    myPlayer.getInv().getItem(1).setQuantity(currGold);
-                    thread.sleep(100);
-                    Player.levelUp(p);
+                    }
+                    if(r.getMon(2).getHealth()<=0){
                     m = r.getMon(3);
-                }
-                if (m.getHealth() <= 0) {
-                    myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
-                    currGold = currGold + m.getGold();
-                    m.setGold(0);
-                    myPlayer.getInv().getItem(1).setQuantity(currGold);
-                    thread.sleep(100);
-                    Player.levelUp(p);
+                    }
+                    if(r.getMon(3).getHealth()<=0){
                     m = r.getMon(4);
-                }
-                if (m.getHealth() <= 0) {
-                    myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
-                    currGold = currGold + m.getGold();
-                    m.setGold(0);
-                    myPlayer.getInv().getItem(1).setQuantity(currGold);
-                    thread.sleep(100);
-                    Player.levelUp(p);
+                    }
+                    if(r.getMon(4).getHealth()<=0){
                     m = r.getMon(5);
+                    bossDialogue(m);
+                    }
+                    
                 }
                 if (m.getHealth() <= 0) {
+                   if(myPlayer.getHealth()<=0){
+                    reset();
+                }
                     currGold = currGold + m.getGold();
                     m.setGold(0);
+                    m.setEXP(0);
                     myPlayer.getInv().getItem(1).setQuantity(currGold);
                     myPlayer.setEXP(myPlayer.getEXP()+ m.getEXP());
                     thread.sleep(100);
                     Player.levelUp(p);
-                    thread.sleep(4000);
+                    jTextArea4.setText("Potions remaining: " + ItemBook.getItem(0).getQuantity() + "\n" + "Current EXP: " +myPlayer.getEXP() + "\n" + "EXP to Level: " + myPlayer.getToLVL());
+                    jTextArea4.update(jTextArea4.getGraphics());
+                    thread.sleep(3000);
                      z=1;
                 }
                 
@@ -320,7 +550,9 @@ public class GUI extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         // introDialogue();
-
+       
+     //  jLabel2.setIcon(image);
+     //  pack();
         gameRunning = true;
         introDialogue();
         Room r = Dungeon.getRoom(1);
@@ -329,9 +561,23 @@ public class GUI extends javax.swing.JFrame {
         myPlayer.getInv().addItem(ItemBook.getItem(1), 1);
         combatFinch.setLED(Color.YELLOW);
         battle(p, r);
+        town();
         Dialogue1();
-        //Obelisk o = new Obelisk(100);
-        //o.getOb();
+        r = Dungeon.getRoom(2);
+        battle(p,r);
+        town();
+        Dialogue2();
+        r = Dungeon.getRoom(3);
+        battle(p,r);
+        town();
+        Dialogue3();
+        r = Dungeon.getRoom(4);
+        battle(p,r);
+        town();
+        Dialogue4();
+        r = Dungeon.getRoom(5);
+        battle(p,r);
+        Dialogue5();
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -369,23 +615,20 @@ public class GUI extends javax.swing.JFrame {
             }
         });
     }
-
+//    private Icon image =new ImageIcon(getClass().getResource("boss1.png"));
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar RPGMenu;
     private javax.swing.JTextArea combatPane;
-    private javax.swing.JTabbedPane invTab;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JScrollPane jScrollPane5;
+    public static javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea logPane;
     private javax.swing.JScrollPane logScrollPane;
-    private javax.swing.JPanel spritePanel;
     // End of variables declaration//GEN-END:variables
 }

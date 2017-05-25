@@ -9,6 +9,13 @@ public abstract class Player {
     /**
      * @return the inv
      */
+    static int maxHealth = 200;
+    public static int getMaxHealth(){
+        return maxHealth;
+    }
+    public static void setMaxHealth(int h){
+        maxHealth = h;
+    }
     public Inventory getInv() {
         return inv;
     }
@@ -23,14 +30,15 @@ public abstract class Player {
     // TD - Instantiating and constructors created 
     private int health;
     private int mana;
-    private int combatPower;
+    private static int combatPower;
     private static int level;
     private double luck;
     private double intel;
     private String myClass;
     private static int exp;
     private Inventory inv = new Inventory();
-    
+    int lvl = GUI.myPlayer.getLVL();
+    private int toLVL;
     public Player() {
         health = mana = combatPower = exp = 0;
         luck = intel = 0;
@@ -66,11 +74,11 @@ public abstract class Player {
         return mana;
     }
 
-    public void setCombatPower(int combatPower) {
-        this.combatPower = combatPower;
+    public static void setCombatPower(int c) {
+        combatPower = c;
     }
 
-    public int getCombatPower() {
+    public static int getCombatPower() {
         return combatPower;
     }
 
@@ -103,6 +111,9 @@ public abstract class Player {
         int toLVL = (200*lvl+1000);
         if (p.getLVL() < 100) {
             if (p.getEXP() >= toLVL) {
+                p.setMaxHealth(getMaxHealth()+10);
+                p.setHealth(maxHealth);
+                p.setCombatPower(getCombatPower()+1);
                 p.setLVL(p.getLVL()+1);
                 p.setEXP(0);
             }
@@ -133,5 +144,19 @@ public abstract class Player {
     @Override
     public String toString() {
         return "Health: " + health + " Mana: " + mana + " CP: " + combatPower + " LVL: " + level + " Gold: " + inv.getItem(1).getQuantity();
+    }
+
+    /**
+     * @return the toLVL
+     */
+    public int getToLVL() {
+        return toLVL;
+    }
+
+    /**
+     * @param toLVL the toLVL to set
+     */
+    public void setToLVL(int toLVL) {
+        this.toLVL = toLVL;
     }
 }

@@ -42,6 +42,7 @@ public class Fighter extends Player{
     public int getMana(){
         return super.getMana();
     }
+    /*
     @Override
     public void setCombatPower(int combatPower){
         super.setCombatPower(combatPower);
@@ -50,6 +51,7 @@ public class Fighter extends Player{
     public int getCombatPower(){
         return super.getCombatPower();
     }
+    */
     @Override
     public void setLuck(double luck){
         super.setLuck(luck);

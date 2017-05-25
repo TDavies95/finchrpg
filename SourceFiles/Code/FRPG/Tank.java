@@ -47,13 +47,13 @@ public class Tank extends Player{
     public int getMana(){
         return super.getMana();
     }
-    @Override
-    public void setCombatPower(int combatPower){
-        super.setCombatPower(combatPower);
+    
+    public static void setCombatPower(int combatPower){
+        GUI.myPlayer.setCombatPower(combatPower);
     }
-    @Override
-    public int getCombatPower(){
-        return super.getCombatPower();
+    
+    public static int getCombatPower(){
+        return GUI.myPlayer.getCombatPower();
     }
     @Override
     public void setLuck(double luck){
